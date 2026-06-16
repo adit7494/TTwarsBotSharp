@@ -75,7 +75,11 @@ namespace MainCore.Services
 
         public string Get()
         {
-            var index = rnd.Next(0, _userAgentList.Count - 1);
+            if (_userAgentList.Count == 0)
+            {
+                return "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+            }
+            var index = rnd.Next(0, _userAgentList.Count);
             var result = _userAgentList[index];
             _userAgentList.RemoveAt(index);
             Save();
