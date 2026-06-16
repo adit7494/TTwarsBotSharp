@@ -16,7 +16,8 @@
 .tools/
 .dotnet/
 .packages/
-/ref-code/
+/web-source/
+/.understand-anything/
 
 # Build results
 [Dd]ebug/
