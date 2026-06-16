@@ -77,8 +77,8 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
             var prerequisiteBuildings = plan.Type.GetPrerequisiteBuildings();
             if (prerequisiteBuildings.Count > 0)
             {
-                // Track used locations to avoid conflicts
-                var usedLocations = new HashSet<int>();
+                // Track used locations to avoid conflicts - include main building location
+                var usedLocations = new HashSet<int> { plan.Location };
 
                 foreach (var prerequisiteBuilding in prerequisiteBuildings)
                 {
