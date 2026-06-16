@@ -20,9 +20,58 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
 
             if (building is null)
             {
+                // Building doesn't exist at this location - validate and find correct location
                 var result = plan.CheckRequirements(buildings);
                 if (result.IsFailed) return result;
                 plan.ValidateLocation(buildings);
+            }
+            else
+            {
+                // Building exists at this location - check if type matches
+                if (building.Type != plan.Type)
+                {
+                    // Building type doesn't match - need to find correct location
+                    // For new buildings, find an empty slot
+                    if (plan.Type.IsWall())
+                    {
+                        plan.Location = 40;
+                    }
+                    else if (plan.Type.IsMultipleBuilding())
+                    {
+                        // Multiple buildings can have same type at different locations
+                        var sameTypeBuildings = buildings.Where(x => x.Type == plan.Type);
+                        if (sameTypeBuildings.Any())
+                        {
+                            var largestLevelBuilding = sameTypeBuildings.MaxBy(x => x.Level)!;
+                            if (largestLevelBuilding.Level < plan.Type.GetMaxLevel())
+                            {
+                                plan.Location = largestLevelBuilding.Location;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Single building - find existing building of this type or empty slot
+                        var existingBuilding = buildings.Find(x => x.Type == plan.Type);
+                        if (existingBuilding is not null)
+                        {
+                            plan.Location = existingBuilding.Location;
+                        }
+                        else
+                        {
+                            // Find empty slot for new building
+                            var emptySlot = buildings.FirstOrDefault(x => x.Type == BuildingEnums.Site);
+                            if (emptySlot is not null)
+                            {
+                                plan.Location = emptySlot.Location;
+                            }
+                            else
+                            {
+                                return Result.Fail("No empty slot available for new building");
+                            }
+                        }
+                    }
+                }
             }
 
             await addJobCommand.HandleAsync(new(villageId, plan.ToJob()));
