@@ -11,13 +11,30 @@
             var heroAdventure = doc.GetElementbyId("heroAdventure");
             if (heroAdventure is null) return TimeSpan.Zero;
 
+            // Standard Travian: span.timer with value attribute
             var timer = heroAdventure
                 .Descendants("span")
                 .FirstOrDefault(x => x.HasClass("timer"));
-            if (timer is null) return TimeSpan.Zero;
+            if (timer is not null)
+            {
+                var seconds = timer.GetAttributeValue("value", 0);
+                if (seconds > 0) return TimeSpan.FromSeconds(seconds);
+            }
 
-            var seconds = timer.GetAttributeValue("value", 0);
-            return TimeSpan.FromSeconds(seconds);
+            // TTWars: div.duration with text like "00:00:02"
+            var durationDiv = heroAdventure
+                .Descendants("div")
+                .FirstOrDefault(x => x.HasClass("duration"));
+            if (durationDiv is not null)
+            {
+                var durationText = durationDiv.InnerText.Trim();
+                if (TimeSpan.TryParse(durationText, out var duration))
+                {
+                    return duration;
+                }
+            }
+
+            return TimeSpan.Zero;
         }
 
         /// <summary>
@@ -61,16 +78,17 @@
                 .FirstOrDefault(x => x.HasClass("adventure") && x.HasClass("round"));
             if (adventureButton is not null) return adventureButton;
 
-            // TTWars: check for adventure page link in hero state
-            var heroState = doc.DocumentNode
-                .Descendants("div")
-                .FirstOrDefault(x => x.HasClass("heroState"));
-            if (heroState is not null)
-            {
-                var adventureLink = heroState.Descendants("a")
-                    .FirstOrDefault(x => x.GetAttributeValue("href", "").Contains("hero_adventures"));
-                if (adventureLink is not null) return adventureLink;
-            }
+            // TTWars: look for adventure link anywhere on the page
+            var adventureLink = doc.DocumentNode
+                .Descendants("a")
+                .FirstOrDefault(x => x.GetAttributeValue("href", "").Contains("hero_adventures"));
+            if (adventureLink is not null) return adventureLink;
+
+            // TTWars: check for adventure tab/button
+            var adventureTab = doc.DocumentNode
+                .Descendants("a")
+                .FirstOrDefault(x => x.GetAttributeValue("href", "").Contains("hero_adventure"));
+            if (adventureTab is not null) return adventureTab;
 
             return null;
         }

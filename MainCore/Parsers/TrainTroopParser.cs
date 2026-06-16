@@ -165,6 +165,8 @@ namespace MainCore.Parsers
             if (troopId >= 1 && troopId <= 10) tribeOffset = 0; // Romans
             else if (troopId >= 11 && troopId <= 20) tribeOffset = 10; // Teutons
             else if (troopId >= 21 && troopId <= 30) tribeOffset = 20; // Gauls
+            else if (troopId >= 31 && troopId <= 39) tribeOffset = 30; // Nature
+            else if (troopId >= 40 && troopId <= 49) tribeOffset = 39; // Natars
             else if (troopId >= 50 && troopId <= 59) tribeOffset = 49; // Egyptians
             else if (troopId >= 60 && troopId <= 69) tribeOffset = 60; // Huns (u61=t1)
             else return -1; // Unknown tribe

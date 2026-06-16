@@ -1,4 +1,4 @@
-﻿namespace MainCore.Parsers
+namespace MainCore.Parsers
 {
     public static class NavigationBarParser
     {
@@ -80,6 +80,7 @@
             if (button is not null) return button;
 
             // Strategy 3: look for village center link (TTWars uses <a> with class "villageCenter")
+            // On dorf2, villageCenter link goes to dorf1
             var villageCenterLink = doc.DocumentNode
                 .Descendants("a")
                 .FirstOrDefault(x => x.HasClass("villageCenter"));
@@ -88,7 +89,6 @@
                 var href = villageCenterLink.GetAttributeValue("href", "");
                 if (href.Contains("dorf1.php"))
                 {
-                    // We're on dorf2, this link goes to dorf1
                     return villageCenterLink;
                 }
             }
@@ -97,19 +97,19 @@
             var svgPath = doc.DocumentNode
                 .Descendants("path")
                 .FirstOrDefault(x => x.GetAttributeValue("onclick", "").Contains("dorf1.php"));
-            if (svgPath is not null)
-            {
-                return svgPath;
-            }
+            if (svgPath is not null) return svgPath;
 
             // Strategy 5: look for any element with onclick containing dorf1.php
             var onclickElement = doc.DocumentNode
                 .Descendants()
                 .FirstOrDefault(x => x.GetAttributeValue("onclick", "").Contains("dorf1.php"));
-            if (onclickElement is not null)
-            {
-                return onclickElement;
-            }
+            if (onclickElement is not null) return onclickElement;
+
+            // Strategy 6: look for logo link (TTWars - clicking logo goes to dorf1)
+            var logo = doc.DocumentNode
+                .Descendants("a")
+                .FirstOrDefault(x => x.GetAttributeValue("id", "") == "logo");
+            if (logo is not null) return logo;
 
             return null;
         }
@@ -129,6 +129,7 @@
             if (button is not null) return button;
 
             // Strategy 3: look for village center link (TTWars uses <a> with class "villageCenter")
+            // On dorf1, villageCenter link goes to dorf2
             var villageCenterLink = doc.DocumentNode
                 .Descendants("a")
                 .FirstOrDefault(x => x.HasClass("villageCenter"));
@@ -137,7 +138,6 @@
                 var href = villageCenterLink.GetAttributeValue("href", "");
                 if (href.Contains("dorf2.php"))
                 {
-                    // We're on dorf1, this link goes to dorf2
                     return villageCenterLink;
                 }
             }
@@ -146,19 +146,13 @@
             var svgPath = doc.DocumentNode
                 .Descendants("path")
                 .FirstOrDefault(x => x.GetAttributeValue("onclick", "").Contains("dorf2.php"));
-            if (svgPath is not null)
-            {
-                return svgPath;
-            }
+            if (svgPath is not null) return svgPath;
 
             // Strategy 5: look for any element with onclick containing dorf2.php
             var onclickElement = doc.DocumentNode
                 .Descendants()
                 .FirstOrDefault(x => x.GetAttributeValue("onclick", "").Contains("dorf2.php"));
-            if (onclickElement is not null)
-            {
-                return onclickElement;
-            }
+            if (onclickElement is not null) return onclickElement;
 
             return null;
         }

@@ -46,8 +46,13 @@
         {
             if (building.IsResourceField()) return GetUpgradeButton(doc);
 
+            // Try contract_building{gid} first (standard Travian)
             var contract_building = doc.GetElementbyId($"contract_building{(int)building}");
-            if (contract_building is null) return null;
+
+            // Fallback to "contract" ID (TTWars uses this)
+            contract_building ??= doc.GetElementbyId("contract");
+
+            if (contract_building is null) return GetUpgradeButton(doc);
 
             // Standard Travian: button with class "new"
             var button = contract_building
@@ -59,7 +64,10 @@
             button = contract_building
                 .Descendants("button")
                 .FirstOrDefault(x => x.HasClass("contractLink") && x.HasClass("build"));
-            return button;
+            if (button is not null) return button;
+
+            // Fallback to upgradeButtonsContainer
+            return GetUpgradeButton(doc);
         }
 
         public static HtmlNode? GetSpecialUpgradeButton(HtmlDocument doc)

@@ -112,7 +112,10 @@
 
             static int GetId(HtmlNode node)
             {
-                return node.GetAttributeValue<int>("data-aid", -1);
+                var dataAid = node.GetAttributeValue("data-aid", "");
+                if (string.IsNullOrEmpty(dataAid)) return -1;
+                if (int.TryParse(dataAid, out var id)) return id;
+                return -1;
             }
 
             static BuildingEnums GetBuildingType(HtmlNode node)

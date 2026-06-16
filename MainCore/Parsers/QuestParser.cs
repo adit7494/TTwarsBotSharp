@@ -1,21 +1,45 @@
-﻿namespace MainCore.Parsers
+namespace MainCore.Parsers
 {
     public static class QuestParser
     {
-        public static HtmlNode GetQuestMaster(HtmlDocument doc)
+        public static HtmlNode? GetQuestMaster(HtmlDocument doc)
         {
+            // Standard Travian
             var questmasterButton = doc.GetElementbyId("questmasterButton");
-            return questmasterButton;
+            if (questmasterButton is not null) return questmasterButton;
+
+            // TTWars: look for quest/task related elements
+            var taskButton = doc.DocumentNode
+                .Descendants("a")
+                .FirstOrDefault(x => x.GetAttributeValue("href", "").Contains("tasks"));
+            return taskButton;
         }
 
         public static bool IsQuestClaimable(HtmlDocument doc)
         {
-            var questmasterButton = GetQuestMaster(doc);
-            if (questmasterButton is null) return false;
-            var newQuestSpeechBubble = questmasterButton
+            // Standard Travian: check questmasterButton speech bubble
+            var questmasterButton = doc.GetElementbyId("questmasterButton");
+            if (questmasterButton is not null)
+            {
+                var newQuestSpeechBubble = questmasterButton
+                    .Descendants("div")
+                    .Any(x => x.HasClass("newQuestSpeechBubble"));
+                if (newQuestSpeechBubble) return true;
+            }
+
+            // TTWars: check for collect buttons on task page
+            var taskOverview = doc.DocumentNode
                 .Descendants("div")
-                .Any(x => x.HasClass("newQuestSpeechBubble"));
-            return newQuestSpeechBubble;
+                .FirstOrDefault(x => x.HasClass("taskOverview"));
+            if (taskOverview is not null)
+            {
+                var collectButton = taskOverview
+                    .Descendants("button")
+                    .Any(x => x.HasClass("collect") && !x.HasClass("disabled"));
+                if (collectButton) return true;
+            }
+
+            return false;
         }
 
         public static HtmlNode? GetQuestCollectButton(HtmlDocument doc)
@@ -34,10 +58,16 @@
 
         public static bool IsQuestPage(HtmlDocument doc)
         {
-            var table = doc.DocumentNode
+            // Check for both village and general task tabs
+            var isVillageTasks = doc.DocumentNode
                 .Descendants("div")
                 .Any(x => x.HasClass("tasks") && x.HasClass("tasksVillage"));
-            return table;
+
+            var isGeneralTasks = doc.DocumentNode
+                .Descendants("div")
+                .Any(x => x.HasClass("tasks") && x.HasClass("tasksGeneral"));
+
+            return isVillageTasks || isGeneralTasks;
         }
 
         /// <summary>
@@ -46,8 +76,15 @@
         /// </summary>
         public static bool HasQuestMaster(HtmlDocument doc)
         {
+            // Standard Travian
             var questmasterButton = doc.GetElementbyId("questmasterButton");
-            return questmasterButton is not null;
+            if (questmasterButton is not null) return true;
+
+            // TTWars: check for task navigation link
+            var taskLink = doc.DocumentNode
+                .Descendants("a")
+                .Any(x => x.GetAttributeValue("href", "").Contains("tasks"));
+            return taskLink;
         }
 
         /// <summary>
