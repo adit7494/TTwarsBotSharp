@@ -5,7 +5,7 @@
 [![.NET](https://img.shields.io/badge/.NET-8.0-purple?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightblue?style=for-the-badge&logo=windows)]()
-[![Release](https://img.shields.io/github/v/release/TTwarsBotSharp/TTwarsBotSharp?style=for-the-badge&logo=github)](https://github.com/TTwarsBotSharp/TTwarsBotSharp/releases)
+[![Release](https://img.shields.io/github/v/release/adit7494/TTwarsBotSharp?style=for-the-badge&logo=github)](https://github.com/adit7494/TTwarsBotSharp/releases)
 
 ---
 
@@ -32,7 +32,7 @@
 
 ### Installation
 
-1. **Download** the latest release from [Releases](https://github.com/TTwarsBotSharp/TTwarsBotSharp/releases)
+1. **Download** the latest release from [Releases](https://github.com/adit7494/TTwarsBotSharp/releases)
 2. **Extract** the ZIP file to your preferred location
 3. **Run** `TTwarsBotSharp.exe`
 
@@ -40,7 +40,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/TTwarsBotSharp/TTwarsBotSharp.git
+git clone https://github.com/adit7494/TTwarsBotSharp.git
 cd TTwarsBotSharp
 
 # Build the project
