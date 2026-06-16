@@ -15,15 +15,26 @@ namespace MainCore.Services
 
         private async Task Update()
         {
-            var useragents = await _httpClient.GetFromJsonAsync<List<string>>(_userAgentUrl);
-            if (useragents is null || useragents.Count == 0)
+            try
             {
-                _logger.Error("User agent list is empty or null.");
+                var useragents = await _httpClient.GetFromJsonAsync<List<string>>(_userAgentUrl);
+                if (useragents is null || useragents.Count == 0)
+                {
+                    _logger.Error("User agent list is empty or null.");
+                }
+                _userAgentList = useragents ?? new List<string>();
+                _logger.Information("User agent list loaded, count: {Count}", _userAgentList.Count);
+                _dateTime = DateTime.Now.AddMonths(1); // need update after 1 month, thought so
+                Save();
             }
-            _userAgentList = useragents ?? new List<string>();
-            _logger.Information("User agent list loaded, count: {Count}", _userAgentList.Count);
-            _dateTime = DateTime.Now.AddMonths(1); // need update after 1 month, thought so
-            Save();
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to update user agent list from remote.");
+                if (_userAgentList.Count == 0)
+                {
+                    _logger.Warning("User agent list is empty. Bot may not function correctly.");
+                }
+            }
         }
 
         private void Save()

@@ -112,6 +112,12 @@
           "Microsoft.Extensions.Options": "9.0.10"
         }
       },
+      "Microsoft.NET.ILLink.Tasks": {
+        "type": "Direct",
+        "requested": "[8.0.27, )",
+        "resolved": "8.0.27",
+        "contentHash": "rQi9TxifHRnXP7lVRZH05DxD2/XGbJp12q0ozcbrlBlBnyyzssFTH/2vLhtKWUp2CT1qVscTrcYTFiwTyKPKRg=="
+      },
       "Polly": {
         "type": "Direct",
         "requested": "[8.6.4, )",
