@@ -77,6 +77,9 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
             var prerequisiteBuildings = plan.Type.GetPrerequisiteBuildings();
             if (prerequisiteBuildings.Count > 0)
             {
+                // Track used locations to avoid conflicts
+                var usedLocations = new HashSet<int>();
+
                 foreach (var prerequisiteBuilding in prerequisiteBuildings)
                 {
                     var existingPrereq = buildings
@@ -97,7 +100,10 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
                         else
                         {
                             // Prerequisite building doesn't exist - find empty slot
-                            var emptySlot = buildings.FirstOrDefault(x => x.Type == BuildingEnums.Site);
+                            var emptySlot = buildings
+                                .Where(x => x.Type == BuildingEnums.Site)
+                                .FirstOrDefault(x => !usedLocations.Contains(x.Location));
+
                             if (emptySlot is not null)
                             {
                                 prereqLocation = emptySlot.Location;
@@ -107,6 +113,9 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
                                 return Result.Fail($"No empty slot for prerequisite {prerequisiteBuilding.Type}");
                             }
                         }
+
+                        // Track this location as used
+                        usedLocations.Add(prereqLocation);
 
                         // Add prerequisite job
                         var prerequisitePlan = new NormalBuildPlan()
