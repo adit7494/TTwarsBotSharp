@@ -8,6 +8,7 @@
         private static async ValueTask<Result<bool>> HandleAsync(
             Command command,
             AppDbContext context,
+            ILogger logger,
             CancellationToken cancellationToken
         )
         {
@@ -19,17 +20,43 @@
             var oldBuilding = buildings
               .FirstOrDefault(x => x.Location == plan.Location);
 
+            logger.Information("[DEBUG-Validate] Plan: {Type} at location {Location} to level {Level}", plan.Type, plan.Location, plan.Level);
             if (oldBuilding is not null)
             {
-                // If building type doesn't match, the job is invalid
+                logger.Information("[DEBUG-Validate] Existing building: Type={Type}, Level={Level}", oldBuilding.Type, oldBuilding.Level);
+            }
+            else
+            {
+                logger.Information("[DEBUG-Validate] No building at location {Location}", plan.Location);
+            }
+
+            if (oldBuilding is not null)
+            {
+                // If building type doesn't match, check if it's a new building (Site) or a real conflict
                 if (oldBuilding.Type != plan.Type)
                 {
-                    // Building at this location is a different type than planned
-                    // This job should be deleted
-                    return false;
+                    // If the existing building is a Site (empty slot), this is a NEW building - valid!
+                    if (oldBuilding.Type == BuildingEnums.Site || oldBuilding.Level <= 0)
+                    {
+                        // This is an empty slot, building a new structure here is valid
+                        logger.Information("[DEBUG-Validate] Empty slot detected (Site), proceeding with new building");
+                    }
+                    else
+                    {
+                        // Building at this location is a DIFFERENT type - real conflict
+                        logger.Information("[DEBUG-Validate] CONFLICT: Location {Location} has {ExistingType} but plan wants {PlanType}", plan.Location, oldBuilding.Type, plan.Type);
+                        return false;
+                    }
                 }
-
-                if (oldBuilding.Level >= plan.Level) return false;
+                else
+                {
+                    // Same type - check if level is already at or above target
+                    if (oldBuilding.Level >= plan.Level)
+                    {
+                        logger.Information("[DEBUG-Validate] Already at target level: {ExistingLevel} >= {PlanLevel}", oldBuilding.Level, plan.Level);
+                        return false;
+                    }
+                }
 
                 var queueBuilding = queueBuildings
                 .Where(x => x.Location == plan.Location)
@@ -37,7 +64,13 @@
                 .Select(x => x.Level)
                 .FirstOrDefault();
 
-                if (queueBuilding >= plan.Level) return false;
+                if (queueBuilding >= plan.Level)
+                {
+                    logger.Information("[DEBUG-Validate] Already in queue at level {QueueLevel} >= {PlanLevel}", queueBuilding, plan.Level);
+                    return false;
+                }
+
+                logger.Information("[DEBUG-Validate] VALID - can upgrade at location {Location}", plan.Location);
                 return true;
             }
 
