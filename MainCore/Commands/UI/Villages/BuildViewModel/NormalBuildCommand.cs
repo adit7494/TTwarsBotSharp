@@ -1,4 +1,4 @@
-﻿using MainCore.UI.Models.Input;
+using MainCore.UI.Models.Input;
 
 namespace MainCore.Commands.UI.Villages.BuildViewModel
 {
@@ -10,7 +10,8 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
         private static async ValueTask<Result> HandleAsync(
             Command command,
             GetLayoutBuildingsCommand.Handler getLayoutBuildingsQuery,
-            AddJobCommand.Handler addJobCommand
+            AddJobCommand.Handler addJobCommand,
+            ILogger logger
             )
         {
             var (villageId, plan) = command;
@@ -21,8 +22,6 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
             if (building is null)
             {
                 // Building doesn't exist at this location - validate and find correct location
-                var result = plan.CheckRequirements(buildings);
-                if (result.IsFailed) return result;
                 plan.ValidateLocation(buildings);
             }
             else
@@ -71,29 +70,62 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
                             }
                         }
                     }
-
-                    // Always check prerequisites when building type doesn't match
-                    var result = plan.CheckRequirements(buildings);
-                    if (result.IsFailed) return result;
                 }
             }
 
-            await addJobCommand.HandleAsync(new(villageId, plan.ToJob()));
-            return Result.Ok();
-        }
-
-        private static Result CheckRequirements(this NormalBuildPlan plan, List<BuildingItem> buildings)
-        {
+            // Check prerequisites and add them automatically if needed
             var prerequisiteBuildings = plan.Type.GetPrerequisiteBuildings();
-            if (prerequisiteBuildings.Count == 0) return Result.Ok();
-            foreach (var prerequisiteBuilding in prerequisiteBuildings)
+            if (prerequisiteBuildings.Count > 0)
             {
-                var valid = buildings
-                    .Where(x => x.Type == prerequisiteBuilding.Type)
-                    .Any(x => x.Level >= prerequisiteBuilding.Level);
+                foreach (var prerequisiteBuilding in prerequisiteBuildings)
+                {
+                    var existingPrereq = buildings
+                        .Where(x => x.Type == prerequisiteBuilding.Type)
+                        .FirstOrDefault(x => x.Level >= prerequisiteBuilding.Level);
 
-                if (!valid) return Result.Fail($"Required {prerequisiteBuilding}");
+                    if (existingPrereq is null)
+                    {
+                        // Prerequisite not met - find or create the prerequisite building
+                        var prereqBuilding = buildings.FirstOrDefault(x => x.Type == prerequisiteBuilding.Type);
+
+                        int prereqLocation;
+                        if (prereqBuilding is not null)
+                        {
+                            // Prerequisite building exists but level is too low
+                            prereqLocation = prereqBuilding.Location;
+                        }
+                        else
+                        {
+                            // Prerequisite building doesn't exist - find empty slot
+                            var emptySlot = buildings.FirstOrDefault(x => x.Type == BuildingEnums.Site);
+                            if (emptySlot is not null)
+                            {
+                                prereqLocation = emptySlot.Location;
+                            }
+                            else
+                            {
+                                return Result.Fail($"No empty slot for prerequisite {prerequisiteBuilding.Type}");
+                            }
+                        }
+
+                        // Add prerequisite job
+                        var prerequisitePlan = new NormalBuildPlan()
+                        {
+                            Type = prerequisiteBuilding.Type,
+                            Level = prerequisiteBuilding.Level,
+                            Location = prereqLocation,
+                        };
+
+                        logger.Information("Adding prerequisite job: {Building} to level {Level} at location {Location}",
+                            prerequisiteBuilding.Type, prerequisiteBuilding.Level, prereqLocation);
+
+                        await addJobCommand.HandleAsync(new(villageId, prerequisitePlan.ToJob()));
+                    }
+                }
             }
+
+            // Add the main job
+            await addJobCommand.HandleAsync(new(villageId, plan.ToJob()));
             return Result.Ok();
         }
 
