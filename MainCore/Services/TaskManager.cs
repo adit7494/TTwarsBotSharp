@@ -1,11 +1,12 @@
-﻿using MainCore.Tasks.Base;
+﻿using System.Collections.Concurrent;
+using MainCore.Tasks.Base;
 
 namespace MainCore.Services
 {
     [RegisterSingleton<ITaskManager, TaskManager>]
     public sealed class TaskManager : ITaskManager
     {
-        private readonly Dictionary<AccountId, TaskQueue> _queues = new();
+        private readonly ConcurrentDictionary<AccountId, TaskQueue> _queues = new();
 
         private readonly IRxQueue _rxQueue;
 
@@ -16,20 +17,29 @@ namespace MainCore.Services
 
         public BaseTask? GetCurrentTask(AccountId accountId)
         {
-            var tasks = GetTaskList(accountId);
-            return tasks.Find(x => x.Stage == StageEnums.Executing);
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
+            {
+                return queue.Tasks.Find(x => x.Stage == StageEnums.Executing);
+            }
         }
 
         public async Task StopCurrentTask(AccountId accountId)
         {
             var cts = GetCancellationTokenSource(accountId);
-            if (cts is not null) await cts.CancelAsync();
+            if (cts is not null && !cts.IsCancellationRequested)
+            {
+                try { await cts.CancelAsync(); }
+                catch (ObjectDisposedException) { }
+            }
 
             BaseTask? currentTask;
+            var timeout = DateTime.UtcNow.AddSeconds(30);
             do
             {
                 currentTask = GetCurrentTask(accountId);
                 if (currentTask is null) break;
+                if (DateTime.UtcNow > timeout) break;
                 await Task.Delay(500);
             }
             while (currentTask.Stage != StageEnums.Waiting);
@@ -57,108 +67,132 @@ namespace MainCore.Services
 
         private T? Get<T>(AccountId accountId, string key) where T : BaseTask
         {
-            var task = GetTaskList(accountId)
-                .OfType<T>()
-                .FirstOrDefault(x => x.Key == key);
-            return task;
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
+            {
+                return queue.Tasks.OfType<T>().FirstOrDefault(x => x.Key == key);
+            }
         }
 
         public bool IsExist<T>(AccountId accountId) where T : BaseTask
         {
-            var tasks = GetTaskList(accountId)
-                .OfType<T>();
-            return tasks.Any(x => x.Key == $"{accountId}");
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
+            {
+                return queue.Tasks.OfType<T>().Any(x => x.Key == $"{accountId}");
+            }
         }
 
         public bool IsExist<T>(AccountId accountId, VillageId villageId) where T : BaseTask
         {
-            var tasks = GetTaskList(accountId)
-                .OfType<T>();
-            return tasks.Any(x => x.Key == $"{accountId}-{villageId}");
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
+            {
+                return queue.Tasks.OfType<T>().Any(x => x.Key == $"{accountId}-{villageId}");
+            }
         }
 
         private void AddTask(AccountTask task, bool first)
         {
-            var tasks = GetTaskList(task.AccountId);
-
-            if (first)
+            var queue = GetTaskQueue(task.AccountId);
+            lock (queue.TasksLock)
             {
-                var firstTask = tasks.FirstOrDefault();
-                if (firstTask is not null && firstTask.ExecuteAt < task.ExecuteAt)
+                if (first)
                 {
-                    task.ExecuteAt = firstTask.ExecuteAt.AddHours(-1);
+                    var firstTask = queue.Tasks.FirstOrDefault();
+                    if (firstTask is not null && firstTask.ExecuteAt < task.ExecuteAt)
+                    {
+                        task.ExecuteAt = firstTask.ExecuteAt.AddHours(-1);
+                    }
                 }
-            }
 
-            tasks.Add(task);
-            if (task is VillageTask villageTask)
-            {
-                _rxQueue.Enqueue(new VillageTaskAdded(villageTask));
+                queue.Tasks.Add(task);
+                if (task is VillageTask villageTask)
+                {
+                    _rxQueue.Enqueue(new VillageTaskAdded(villageTask));
+                }
+                ReOrderLocked(task.AccountId, queue);
             }
-            ReOrder(task.AccountId, tasks);
         }
 
         private void Update(AccountTask task, bool first)
         {
-            var tasks = GetTaskList(task.AccountId);
-
-            if (first)
+            var queue = GetTaskQueue(task.AccountId);
+            lock (queue.TasksLock)
             {
-                var firstTask = tasks.FirstOrDefault();
-                if (firstTask is not null && firstTask.ExecuteAt < task.ExecuteAt)
+                if (first)
                 {
-                    task.ExecuteAt = firstTask.ExecuteAt.AddHours(-1);
+                    var firstTask = queue.Tasks.FirstOrDefault();
+                    if (firstTask is not null && firstTask.ExecuteAt < task.ExecuteAt)
+                    {
+                        task.ExecuteAt = firstTask.ExecuteAt.AddHours(-1);
+                    }
                 }
+                ReOrderLocked(task.AccountId, queue);
             }
-            ReOrder(task.AccountId, tasks);
         }
 
         public void Remove(AccountId accountId, BaseTask task)
         {
-            var tasks = GetTaskList(accountId);
-            if (tasks.Remove(task))
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
             {
-                ReOrder(accountId, tasks);
+                if (queue.Tasks.Remove(task))
+                {
+                    ReOrderLocked(accountId, queue);
+                }
             }
         }
 
         public void Remove<T>(AccountId accountId) where T : AccountTask
         {
-            var tasks = GetTaskList(accountId);
-            var task = tasks.OfType<T>().FirstOrDefault(x => x.AccountId == accountId);
-            if (task is null) return;
-            tasks.Remove(task);
-            ReOrder(accountId, tasks);
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
+            {
+                var task = queue.Tasks.OfType<T>().FirstOrDefault(x => x.AccountId == accountId);
+                if (task is null) return;
+                queue.Tasks.Remove(task);
+                ReOrderLocked(accountId, queue);
+            }
         }
 
         public void Remove<T>(AccountId accountId, VillageId villageId) where T : VillageTask
         {
-            var tasks = GetTaskList(accountId);
-            var task = tasks.OfType<T>().FirstOrDefault(x => x.AccountId == accountId && x.VillageId == villageId);
-            if (task is null) return;
-            tasks.Remove(task);
-            ReOrder(accountId, tasks);
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
+            {
+                var task = queue.Tasks.OfType<T>().FirstOrDefault(x => x.AccountId == accountId && x.VillageId == villageId);
+                if (task is null) return;
+                queue.Tasks.Remove(task);
+                ReOrderLocked(accountId, queue);
+            }
         }
 
         public void ReOrder(AccountId accountId)
         {
-            var tasks = GetTaskList(accountId);
-            ReOrder(accountId, tasks);
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
+            {
+                ReOrderLocked(accountId, queue);
+            }
         }
 
         public void Clear(AccountId accountId)
         {
-            var tasks = GetTaskList(accountId);
-            if (tasks.Count == 0) return;
-            tasks.Clear();
+            var queue = GetTaskQueue(accountId);
+            lock (queue.TasksLock)
+            {
+                if (queue.Tasks.Count == 0) return;
+                queue.Tasks.Clear();
+            }
             _rxQueue.Enqueue(new TasksModified(accountId));
         }
 
-        private void ReOrder(AccountId accountId, List<BaseTask> tasks)
+        private void ReOrderLocked(AccountId accountId, TaskQueue queue)
         {
             _rxQueue.Enqueue(new TasksModified(accountId));
-            if (tasks.Count <= 1) return;
-            tasks.Sort((x, y) => DateTime.Compare(x.ExecuteAt, y.ExecuteAt));
+            if (queue.Tasks.Count <= 1) return;
+            queue.Tasks.Sort((x, y) => DateTime.Compare(x.ExecuteAt, y.ExecuteAt));
         }
 
         public List<BaseTask> GetTaskList(AccountId accountId)
@@ -194,16 +228,7 @@ namespace MainCore.Services
 
         public TaskQueue GetTaskQueue(AccountId accountId)
         {
-            if (_queues.ContainsKey(accountId))
-            {
-                return _queues[accountId];
-            }
-            else
-            {
-                var queue = new TaskQueue();
-                _queues.Add(accountId, queue);
-                return queue;
-            }
+            return _queues.GetOrAdd(accountId, _ => new TaskQueue());
         }
     }
 
@@ -213,5 +238,6 @@ namespace MainCore.Services
         public StatusEnums Status { get; set; } = StatusEnums.Offline;
         public CancellationTokenSource? CancellationTokenSource { get; set; }
         public List<BaseTask> Tasks { get; } = [];
+        public object TasksLock { get; } = new();
     }
 }

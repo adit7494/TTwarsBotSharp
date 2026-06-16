@@ -81,7 +81,12 @@ namespace MainCore.Services
             _wait = new WebDriverWait(_driver, TimeSpan.FromMinutes(3)); // watch ads
 
             _bidi = await _driver.AsBiDiAsync();
-            _context = (await _bidi.BrowsingContext.GetTreeAsync()).Contexts[0].Context;
+            var tree = await _bidi.BrowsingContext.GetTreeAsync();
+            if (tree.Contexts.Count == 0)
+            {
+                throw new Exception("No browsing contexts found. Browser may not have started correctly.");
+            }
+            _context = tree.Contexts[0].Context;
 
             foreach (var path in _extensionsPath)
             {
@@ -238,9 +243,8 @@ namespace MainCore.Services
         public async Task<Result> ExecuteJsScript(string javascript)
         {
             if (Driver is null) return Stop.DriverNotReady;
-            await Task.CompletedTask;
             var js = Driver as IJavaScriptExecutor;
-            js.ExecuteScript(javascript);
+            await Task.Run(() => js.ExecuteScript(javascript));
             return Result.Ok();
         }
 
@@ -368,12 +372,11 @@ chrome.webRequest.onAuthRequired.addListener(
             {
                 var background_proxy_js = ReplaceTemplates(background_js, host, port, userName, password);
 
-                const string path = "Plugins";
-                if (Directory.Exists(path)) Directory.Delete(path);
+                var path = Path.Combine(Path.GetTempPath(), $"TTwarsBot_Proxy_{Guid.NewGuid():N}");
                 Directory.CreateDirectory(path);
 
-                var manifestPath = $"{path}/manifest.json";
-                var backgroundPath = $"{path}/background.js";
+                var manifestPath = Path.Combine(path, "manifest.json");
+                var backgroundPath = Path.Combine(path, "background.js");
 
                 File.WriteAllText(manifestPath, manifest_json);
                 File.WriteAllText(backgroundPath, background_proxy_js);

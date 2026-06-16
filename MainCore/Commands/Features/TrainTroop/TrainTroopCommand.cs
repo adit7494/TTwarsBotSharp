@@ -15,14 +15,22 @@ namespace MainCore.Commands.Features.TrainTroop
             CancellationToken cancellationToken)
         {
             var (villageId, building) = command;
-            var troop = (TroopEnums)context.ByName(villageId, TroopSettings[building]);
+            if (!TroopSettings.TryGetValue(building, out var troopSetting))
+            {
+                return Result.Fail($"No troop setting found for building {building}");
+            }
+            if (!AmountSettings.TryGetValue(building, out var amountSetting))
+            {
+                return Result.Fail($"No amount setting found for building {building}");
+            }
+            var troop = (TroopEnums)context.ByName(villageId, troopSetting);
             var maxAmount = TrainTroopParser.GetMaxAmount(browser.Html, troop);
             if (maxAmount == 0)
             {
                 return MissingResource.Error(troop);
             }
 
-            var (minSetting, maxSetting) = AmountSettings[building];
+            var (minSetting, maxSetting) = amountSetting;
             var amount = context.ByName(villageId, minSetting, maxSetting);
             if (amount > maxAmount)
             {

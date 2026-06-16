@@ -183,7 +183,8 @@ namespace MainCore.Services
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                 }
-            );
+            ) ?? throw new Exception("Failed to start chromedriver process");
+
             string existingChromeDriverVersion = await process.StandardOutput.ReadToEndAsync();
             string error = await process.StandardError.ReadToEndAsync();
             await process.WaitForExitAsync();
@@ -191,7 +192,12 @@ namespace MainCore.Services
 
             // expected output is something like "ChromeDriver 88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784})"
             // the following line will extract the version number and leave the rest
-            existingChromeDriverVersion = existingChromeDriverVersion.Split(" ")[1];
+            var parts = existingChromeDriverVersion.Split(" ");
+            if (parts.Length < 2)
+            {
+                throw new Exception($"Unexpected chromedriver version output: {existingChromeDriverVersion}");
+            }
+            existingChromeDriverVersion = parts[1];
 
             var version = new Version(existingChromeDriverVersion);
 
@@ -240,8 +246,8 @@ namespace MainCore.Services
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                string chromePath = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\chrome.exe", null, null);
-                if (chromePath == null)
+                string chromePath = Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\chrome.exe", null, null) as string;
+                if (string.IsNullOrEmpty(chromePath))
                 {
                     throw new Exception("Google Chrome not found in registry");
                 }
@@ -263,7 +269,7 @@ namespace MainCore.Services
                             RedirectStandardOutput = true,
                             RedirectStandardError = true,
                         }
-                    );
+                    ) ?? throw new Exception("Failed to start google-chrome process");
                     string output = await process.StandardOutput.ReadToEndAsync();
                     string error = await process.StandardError.ReadToEndAsync();
                     await process.WaitForExitAsync();
@@ -295,7 +301,7 @@ namespace MainCore.Services
                             RedirectStandardOutput = true,
                             RedirectStandardError = true,
                         }
-                    );
+                    ) ?? throw new Exception("Failed to start Google Chrome process");
                     string output = await process.StandardOutput.ReadToEndAsync();
                     string error = await process.StandardError.ReadToEndAsync();
                     await process.WaitForExitAsync();

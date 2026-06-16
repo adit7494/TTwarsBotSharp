@@ -26,7 +26,7 @@
             }
             catch (Exception ex)
             {
-                _ = ex;
+                logger.Error(ex, "Failed to open browser for account {AccountId}", accountId);
                 taskManager.SetStatus(accountId, StatusEnums.Offline);
                 return;
             }

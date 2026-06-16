@@ -35,7 +35,7 @@ namespace MainCore
                     .Enrich.FromLogContext());
             });
 
-        private const string _connectionString = "DataSource=TBS.db;Cache=Shared";
+        private static readonly string _connectionString = $"DataSource={Path.Combine(AppContext.BaseDirectory, "TBS.db")};Cache=Shared";
 
         private static IHostBuilder ConfigureDbContext(this IHostBuilder hostBuilder) =>
             hostBuilder.ConfigureServices((hostContext, services) =>

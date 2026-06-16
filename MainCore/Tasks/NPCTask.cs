@@ -28,7 +28,7 @@ namespace MainCore.Tasks
 
                 var granaryPercent = (int)context.Storages
                    .Where(x => x.VillageId == VillageId.Value)
-                   .Select(x => x.Crop * 100f / x.Granary)
+                   .Select(x => x.Granary > 0 ? x.Crop * 100f / x.Granary : 0f)
                    .FirstOrDefault();
 
                 var autoNPCGranaryPercent = context.ByName(VillageId, VillageSettingEnums.AutoNPCGranaryPercent);

@@ -9,6 +9,7 @@ namespace MainCore.Services
         private readonly ILogger _logger = logger.ForContext<UseragentManager>();
         private List<string> _userAgentList = [];
         private DateTime _dateTime;
+        private readonly object _lock = new();
 
         private const string _userAgentUrl = "https://raw.githubusercontent.com/TTwarsBotSharp/user-agent/main/user-agent.json";
         private readonly HttpClient _httpClient = new();
@@ -62,7 +63,13 @@ namespace MainCore.Services
             }
 
             var userAgentJsonString = await File.ReadAllTextAsync(pathFile);
-            var modelLoaded = JsonSerializer.Deserialize<Model>(userAgentJsonString)!;
+            var modelLoaded = JsonSerializer.Deserialize<Model>(userAgentJsonString);
+            if (modelLoaded is null)
+            {
+                _logger.Warning("User agent file is corrupted, creating new one.");
+                await Update();
+                return;
+            }
             _userAgentList = modelLoaded.UserAgentList;
             _dateTime = modelLoaded.DateTime;
 
@@ -75,15 +82,18 @@ namespace MainCore.Services
 
         public string Get()
         {
-            if (_userAgentList.Count == 0)
+            lock (_lock)
             {
-                return "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+                if (_userAgentList.Count == 0)
+                {
+                    return "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+                }
+                var index = rnd.Next(0, _userAgentList.Count);
+                var result = _userAgentList[index];
+                _userAgentList.RemoveAt(index);
+                Save();
+                return result;
             }
-            var index = rnd.Next(0, _userAgentList.Count);
-            var result = _userAgentList[index];
-            _userAgentList.RemoveAt(index);
-            Save();
-            return result;
         }
 
         private readonly Random rnd = new();

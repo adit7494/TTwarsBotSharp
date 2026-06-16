@@ -114,8 +114,9 @@ namespace MainCore.Services
 
             taskQueue.IsExecuting = false;
 
-            cts.Dispose();
+            var ctsRef = taskQueue.CancellationTokenSource;
             taskQueue.CancellationTokenSource = null;
+            ctsRef?.Dispose();
 
             if (poliResult.Exception is not null)
             {
@@ -205,9 +206,16 @@ namespace MainCore.Services
                 var timer = new Timer(100) { AutoReset = false };
                 timer.Elapsed += async (sender, e) =>
                 {
-                    if (_isShutdown) return;
-                    await Execute(accountId);
-                    timer.Start();
+                    try
+                    {
+                        if (_isShutdown) return;
+                        await Execute(accountId);
+                        timer.Start();
+                    }
+                    catch (Exception)
+                    {
+                        // Prevent async void from crashing the app
+                    }
                 };
 
                 _timers.Add(accountId, timer);

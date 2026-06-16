@@ -20,7 +20,8 @@
                     x.Username,
                     x.Server,
                 })
-                .First();
+                .FirstOrDefault()
+                ?? throw new Exception($"Account {accountId} not found in database");
 
             var uri = new Uri(account.Server);
 

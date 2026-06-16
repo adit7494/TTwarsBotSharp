@@ -65,7 +65,8 @@ namespace MainCore.Parsers
             if (string.IsNullOrEmpty(normValue)) return -1;
             // Guard against standalone minus sign
             if (normValue == "-" || normValue == "+") return -1;
-            return int.Parse(normValue);
+            if (int.TryParse(normValue, out var result)) return result;
+            return -1;
         }
 
         public static long ParseLong(this string value)
@@ -74,7 +75,8 @@ namespace MainCore.Parsers
             if (string.IsNullOrEmpty(normValue)) return -1;
             // Guard against standalone minus sign
             if (normValue == "-" || normValue == "+") return -1;
-            return long.Parse(normValue);
+            if (long.TryParse(normValue, out var result)) return result;
+            return -1;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Collections.Concurrent;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Configuration;
 using Serilog.Core;
@@ -9,7 +10,7 @@ namespace MainCore.Services
     [RegisterSingleton<LogSink>]
     public sealed class LogSink : ILogEventSink
     {
-        private Dictionary<AccountId, LinkedList<LogEvent>> Logs { get; } = [];
+        private ConcurrentDictionary<AccountId, LinkedList<LogEvent>> Logs { get; } = new();
 
         private readonly IRxQueue _rxQueue;
 
@@ -20,13 +21,7 @@ namespace MainCore.Services
 
         public LinkedList<LogEvent> GetLogs(AccountId accountId)
         {
-            var logs = Logs.GetValueOrDefault(accountId);
-            if (logs is null)
-            {
-                logs = new LinkedList<LogEvent>();
-                Logs.Add(accountId, logs);
-            }
-            return logs;
+            return Logs.GetOrAdd(accountId, _ => new LinkedList<LogEvent>());
         }
 
         public void Emit(LogEvent logEvent)
@@ -36,14 +31,18 @@ namespace MainCore.Services
             if (logEventPropertyValue is null) return;
             if (logEventPropertyValue is not ScalarValue scalarValue) return;
             var value = scalarValue.Value as string;
-            var accountId = new AccountId(int.Parse(value!));
+            if (value is null || !int.TryParse(value, out var parsed)) return;
+            var accountId = new AccountId(parsed);
 
             var logs = GetLogs(accountId);
-            logs.AddFirst(logEvent);
-            // keeps 200 message
-            if (logs.Count > 200)
+            lock (logs)
             {
-                logs.RemoveLast();
+                logs.AddFirst(logEvent);
+                // keeps 200 message
+                if (logs.Count > 200)
+                {
+                    logs.RemoveLast();
+                }
             }
 
             _rxQueue.Enqueue(new LogEmitted(accountId, logEvent));

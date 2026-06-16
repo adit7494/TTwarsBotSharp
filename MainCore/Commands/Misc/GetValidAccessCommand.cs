@@ -25,7 +25,7 @@ namespace MainCore.Commands.Misc
             {
                 foreach (var proxy in proxies)
                 {
-                    var client = GetHttpClient(proxy);
+                    using var client = CreateHttpClient(proxy);
                     logger.Information("Checking proxy {Proxy}, last used {LastUsed}", proxy.Proxy, proxy.LastUsed);
                     try
                     {
@@ -59,48 +59,27 @@ namespace MainCore.Commands.Misc
             return access;
         }
 
-        private static readonly NetworkCredential _networkCredential = new();
-
-        private static readonly WebProxy _proxyWithAuth = new()
-        {
-            Credentials = _networkCredential,
-        };
-
-        private static readonly WebProxy _proxyWithoutAuth = new();
-
-        private static readonly HttpClient _proxyWithoutAuthHttpClient = new(new HttpClientHandler()
-        {
-            Proxy = _proxyWithoutAuth,
-            UseProxy = true,
-        });
-
-        private static readonly HttpClient _proxyWithAuthHttpClient = new(new HttpClientHandler()
-        {
-            Proxy = _proxyWithAuth,
-            UseProxy = true,
-        });
-
-        private static readonly HttpClient _defaultHttpClient = new(new HttpClientHandler()
-        {
-            UseProxy = false,
-        });
-
         private const string TRAVIAN_PAGE = "https://www.travian.com/international";
 
-        private static HttpClient GetHttpClient(AccessDto access)
+        private static HttpClient CreateHttpClient(AccessDto access)
         {
-            if (string.IsNullOrEmpty(access.ProxyHost)) return _defaultHttpClient;
+            if (string.IsNullOrEmpty(access.ProxyHost))
+            {
+                return new HttpClient(new HttpClientHandler { UseProxy = false });
+            }
 
             if (string.IsNullOrEmpty(access.ProxyUsername))
             {
-                _proxyWithoutAuth.Address = new Uri($"http://{access.ProxyHost}:{access.ProxyPort}");
-                return _proxyWithoutAuthHttpClient;
+                var proxy = new WebProxy(new Uri($"http://{access.ProxyHost}:{access.ProxyPort}"));
+                return new HttpClient(new HttpClientHandler { Proxy = proxy, UseProxy = true });
             }
 
-            _networkCredential.UserName = access.ProxyUsername;
-            _networkCredential.Password = access.ProxyPassword;
-            _proxyWithAuth.Address = new Uri($"http://{access.ProxyHost}:{access.ProxyPort}");
-            return _proxyWithAuthHttpClient;
+            var credentials = new NetworkCredential(access.ProxyUsername, access.ProxyPassword);
+            var authProxy = new WebProxy(new Uri($"http://{access.ProxyHost}:{access.ProxyPort}"))
+            {
+                Credentials = credentials,
+            };
+            return new HttpClient(new HttpClientHandler { Proxy = authProxy, UseProxy = true });
         }
     }
 }

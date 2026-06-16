@@ -80,11 +80,6 @@
                 }
             }
 
-            context.QueueBuildings
-                .Where(x => x.VillageId == villageId.Value)
-                .Where(x => x.CompleteTime < DateTime.Now)
-                .ExecuteDelete();
-
             var dbQueueBuildings = context.QueueBuildings
                 .Where(x => x.VillageId == villageId.Value)
                 .ToList();

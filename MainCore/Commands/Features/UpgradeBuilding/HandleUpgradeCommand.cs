@@ -179,7 +179,8 @@
 
             // close if bot click on playing ads
             // chrome will open new tab & pause ads
-            do
+            var maxAdIterations = 20;
+            for (var adIteration = 0; adIteration < maxAdIterations; adIteration++)
             {
                 var handles = driver.WindowHandles;
                 if (handles.Count <= 1) break;
@@ -198,7 +199,6 @@
 
                 driver.SwitchTo().DefaultContent();
             }
-            while (true);
 
             result = await browser.WaitPageChanged("dorf", cancellationToken);
             if (result.IsFailed) return result;

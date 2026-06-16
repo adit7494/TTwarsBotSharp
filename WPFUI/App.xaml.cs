@@ -35,7 +35,13 @@ namespace WPFUI
                 sp.GetRequiredService<IRxQueue>().Setup();
             });
 
-            host.RunAsync();
+            host.RunAsync().ContinueWith(t =>
+            {
+                if (t.Exception is not null)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Host failed to start: {t.Exception}");
+                }
+            }, TaskContinuationOptions.OnlyOnFaulted);
         }
 
         private static void SetupDialogService(IServiceProvider serviceProvider)

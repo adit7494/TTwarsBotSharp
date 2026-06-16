@@ -13,13 +13,7 @@ namespace MainCore.Services
 
         public IChromeBrowser Get(AccountId accountId)
         {
-            if (_dictionary.TryGetValue(accountId, out ChromeBrowser? browser))
-            {
-                return browser;
-            }
-            browser = new ChromeBrowser(_extensionsPath);
-            _dictionary.TryAdd(accountId, browser);
-            return browser;
+            return _dictionary.GetOrAdd(accountId, _ => new ChromeBrowser(_extensionsPath));
         }
 
         public async Task Shutdown()

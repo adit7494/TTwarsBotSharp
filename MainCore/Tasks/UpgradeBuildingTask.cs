@@ -28,8 +28,9 @@ namespace MainCore.Tasks
             CancellationToken cancellationToken)
         {
             Result result;
+            var maxIterations = 100;
 
-            while (true)
+            for (var iteration = 0; iteration < maxIterations; iteration++)
             {
                 if (cancellationToken.IsCancellationRequested) return Cancel.Error;
 
@@ -81,6 +82,8 @@ namespace MainCore.Tasks
                 result = await updateBuildingCommand.HandleAsync(new(task.VillageId), cancellationToken);
                 if (result.IsFailed) return result;
             }
+
+            return Result.Ok();
         }
     }
 }

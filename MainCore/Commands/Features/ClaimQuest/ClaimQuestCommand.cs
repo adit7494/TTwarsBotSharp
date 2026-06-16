@@ -15,8 +15,9 @@ namespace MainCore.Commands.Features.ClaimQuest
             CancellationToken cancellationToken)
         {
             Result result;
+            var maxIterations = 50;
 
-            do
+            for (var iteration = 0; iteration < maxIterations; iteration++)
             {
                 if (cancellationToken.IsCancellationRequested)
                 {
@@ -50,8 +51,9 @@ namespace MainCore.Commands.Features.ClaimQuest
                     if (result.IsFailed) return result;
                     await delayService.DelayClick(cancellationToken);
                 }
+
+                if (!QuestParser.IsQuestClaimable(browser.Html)) break;
             }
-            while (QuestParser.IsQuestClaimable(browser.Html));
 
             return Result.Ok();
         }

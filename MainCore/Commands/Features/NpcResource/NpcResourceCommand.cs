@@ -99,6 +99,12 @@
             var crop = StorageParser.GetCrop(browser.Html);
             var granary = StorageParser.GetGranaryCapacity(browser.Html);
 
+            if (granary <= 0)
+            {
+                browser.Logger.Warning("NPC resources not available. Granary capacity is invalid: {Granary}", granary);
+                return false;
+            }
+
             var granaryPercent = (int)(crop * 100f / granary);
 
             var autoNPCGranaryPercent = context.ByName(villageId, VillageSettingEnums.AutoNPCGranaryPercent);
