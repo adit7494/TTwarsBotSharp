@@ -1,0 +1,87 @@
+<div id="content" class="build">
+                        <h1 class="titleInHeader">Bangun gedung baru</h1><div id="build" class="gid0">
+    <a id="tabFavorButton" class="contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'constructNewBuildingCategory',number: '2'},success: function(data) {if (data.success) { jQuery('.tabFavorWrapper .favor').removeClass('favorActive');jQuery('.tabFavorWrapper .favor.favorKey2').addClass('favorActive');}}});return false;">&nbsp;
+</a>
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKey1        ">
+                    <a id="buttonE1" title="" class="tabItem  normal" href="/build.php?id=40&amp;category=1">
+                        Infrastruktur                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey2        ">
+                    <a id="buttons2" title="" class="tabItem  active" href="/build.php?id=40&amp;category=2">
+                        Militer                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey3        ">
+                    <a id="buttonO3" title="" class="tabItem  normal" href="/build.php?id=40&amp;category=3">
+                        Sumberdaya                    </a>
+                </div>
+                                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+<div id="contract_building43" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Makeshift Wall</h2>
+        Dengan membangun Tembok Sementara, Anda dapat melindungi desa Anda dari gerombolan barbar musuh Anda. Semakin tinggi levelnya, makin tinggi bonus yang diberikan untuk pertahanan pasukan Anda.
+<br><br>
+Tembok Sementara hanya dapat dibangun oleh Suku Hun, bonus pertahanannya seperti Tembok Tanah Teutonik dan ketahanannya setara dengan Tembok Kota Roma.    </div>
+
+    <img class="build_logo building big g43 hun" src="/img/x.gif" alt="Makeshift Wall">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">50</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">80</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">40</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">30</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">0</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">0</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="defenceBonus_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <button type="button" class="textButtonV1 green contractLink build" value="Bangun gedung" onclick="window.location.href = 'dorf2.php?a=43&amp;id=40&amp;c=0890664fd63f'; return false;" id="buttonn4" version="textButtonV1">Bangun gedung</button><script type="text/javascript" id="buttonn4_script">
+        jQuery('#buttonn4').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Bangun gedung","onclick":"window.location.href = 'dorf2.php?a=43&id=40&c=0890664fd63f'; return false;","id":"buttonn4","version":"textButtonV1","title":"Bangun gedung"}]);
+        });
+    </script>                            <div class="inlineIcon duration">
+                    <div class="iconWrapper"><i class="clock_medium"></i></div>
+                    <span class="value ">0:00:00</span>
+                </div>
+                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+</div>                    </div>

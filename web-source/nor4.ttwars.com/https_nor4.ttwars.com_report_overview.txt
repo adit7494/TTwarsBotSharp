@@ -1,0 +1,193 @@
+<div id="content" class="reports reportsOverview">
+                        <h1 class="titleInHeader">Laporan</h1><a type="submit" id="tabFavorButton" class="icon contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'reports',number: 'overview'},success: function(data) {if (data.success) { jQuery('.tabFavorWrapper .favor').removeClass('favorActive');jQuery('.tabFavorWrapper .favor.favorKeyoverview').addClass('favorActive');}}});return false;">
+    <img src="/img/x.gif" class="&nbsp;" alt="&nbsp;"></a>
+
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKeyoverview        ">
+                    <a id="buttonS9" title="" class="tabItem  active" href="/report/overview">
+                        Semua                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyoffensive        ">
+                    <a id="buttony10" title="" class="tabItem  normal" href="/report/offensive">
+                        Serangan                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeydefensive        ">
+                    <a id="buttonn11" title="" class="tabItem  normal" href="/report/defensive">
+                        Pertahanan                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyscouting        ">
+                    <a id="buttonZ12" title="" class="tabItem  normal" href="/report/scouting">
+                        Mengintai                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyother        ">
+                    <a id="buttonI13" title="" class="tabItem  normal" href="/report/other">
+                        Lain                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyarchive        ">
+                    <a id="buttonO14" class="tabItem gold normal" href="#">
+                        Arsip                    </a>
+                </div>
+                                                    
+                        <script type="text/javascript">
+                            if (jQuery('#buttonO14')) {
+                                jQuery('#buttonO14').click(function (event) {
+                                    jQuery(window).trigger('tabClicked', [this, {
+                                        "goldclubDialog": {
+                                            "featureKey": "messageArchive",
+                                            "infoIcon": "https:\/\/answers.travian.com\/index.php?aid=Travian Answers#go2answer",
+                                            "cssClass": "premiumFeaturePackage premiumFeatureGoldclub paymentShopV4",
+                                            "premiumFeatureDialogVersion": 2,
+                                            "version": 2,
+                                            "paymentShopVersion": 4
+                                        },
+                                    }]);
+                                });
+                            }
+                        </script>
+
+                                                            <div class="content
+
+        favor favorKeysurrounding        ">
+                    <a id="buttonw15" title="" class="tabItem  normal" href="/report/surrounding">
+                        Sekeliling                    </a>
+                </div>
+                                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        if (window.Travian && Travian.Game && typeof Travian.Game.TabScrollNavigation === 'function') {
+            Travian.Game.TabScrollNavigation();
+        }
+    });
+</script>
+
+<div id="reportsForm">
+    <script>
+        Travian.Game.Reports.filter = Travian.Game.Reports.filter || {};
+        Travian.Game.Reports.filter.icons = [];
+    </script>
+    
+    
+    <div class="buttonWrapper">
+        <button type="button" class="textButtonV1 green markAsRead" value="Reports.markAllAsRead" onclick="Travian.Game.Reports.handleMarkAsRead()" data-text-all="Reports.markAllAsRead" data-text-selected="Reports.markSelectedAsRead" data-text-category="Reports.markCategoryAsRead" id="buttona1" version="textButtonV1">Reports.markAllAsRead</button><script type="text/javascript" id="buttona1_script">
+        jQuery('#buttona1').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green markAsRead","value":"Reports.markAllAsRead","onclick":"Travian.Game.Reports.handleMarkAsRead()","data-text-all":"Reports.markAllAsRead","data-text-selected":"Reports.markSelectedAsRead","data-text-category":"Reports.markCategoryAsRead","id":"buttona1","version":"textButtonV1","title":"Reports.markAllAsRead"}]);
+        });
+    </script>        <button type="button" class="textButtonV1 green delete" value="Reports.deleteAllReports" onclick="Travian.Game.Reports.handleDelete(false)" data-text-all="Reports.deleteAllReports" data-text-selected="Reports.deleteSelectedReports" data-text-category="Reports.deleteCategoryReports" id="buttons2" version="textButtonV1">Reports.deleteAllReports</button><script type="text/javascript" id="buttons2_script">
+        jQuery('#buttons2').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green delete","value":"Reports.deleteAllReports","onclick":"Travian.Game.Reports.handleDelete(false)","data-text-all":"Reports.deleteAllReports","data-text-selected":"Reports.deleteSelectedReports","data-text-category":"Reports.deleteCategoryReports","id":"buttons2","version":"textButtonV1","title":"Reports.deleteAllReports"}]);
+        });
+    </script>    </div>
+    <div class="footer">
+		<div id="markAll">
+			<input class="check" type="checkbox" id="sAll1" onclick="Travian.Game.Reports.selectAll(this);">
+			<span><label for="sAll1">Pilih Semua</label></span>
+		</div>
+        		<div class="clear"></div>
+	</div>
+	<table cellpadding="1" cellspacing="1" id="overview" class="row_table_data">
+		<thead>
+		<tr>
+			<th colspan="2">
+				Subyek:
+			</th>
+			<th class="dat">
+				<a href="/report/overview?s=0&amp;o=1" class="sorting desc">
+					Terkirim&nbsp;
+					<img src="/img/x.gif" alt="sort">
+				</a>
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr><td colspan="3" class="noData">Tidak ada laporan yang tersedia.</td></tr>		</tbody>
+    </table>
+    <div class="footer">
+		<div id="markAll">
+            <input class="check" type="checkbox" id="sAll2" onclick="Travian.Game.Reports.selectAll(this);">
+			<span><label for="sAll2">Pilih Semua</label></span>
+		</div>
+	    	    <div class="clear"></div>
+    </div>
+    <div class="buttonWrapper">
+        <button type="button" class="textButtonV1 green markAsRead" value="Reports.markAllAsRead" onclick="Travian.Game.Reports.handleMarkAsRead()" data-text-all="Reports.markAllAsRead" data-text-selected="Reports.markSelectedAsRead" data-text-category="Reports.markCategoryAsRead" id="buttonR3" version="textButtonV1">Reports.markAllAsRead</button><script type="text/javascript" id="buttonR3_script">
+        jQuery('#buttonR3').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green markAsRead","value":"Reports.markAllAsRead","onclick":"Travian.Game.Reports.handleMarkAsRead()","data-text-all":"Reports.markAllAsRead","data-text-selected":"Reports.markSelectedAsRead","data-text-category":"Reports.markCategoryAsRead","id":"buttonR3","version":"textButtonV1","title":"Reports.markAllAsRead"}]);
+        });
+    </script>        <button type="button" class="textButtonV1 green delete" value="Reports.deleteAllReports" onclick="Travian.Game.Reports.handleDelete(false)" data-text-all="Reports.deleteAllReports" data-text-selected="Reports.deleteSelectedReports" data-text-category="Reports.deleteCategoryReports" id="buttonB4" version="textButtonV1">Reports.deleteAllReports</button><script type="text/javascript" id="buttonB4_script">
+        jQuery('#buttonB4').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green delete","value":"Reports.deleteAllReports","onclick":"Travian.Game.Reports.handleDelete(false)","data-text-all":"Reports.deleteAllReports","data-text-selected":"Reports.deleteSelectedReports","data-text-category":"Reports.deleteCategoryReports","id":"buttonB4","version":"textButtonV1","title":"Reports.deleteAllReports"}]);
+        });
+    </script>    </div>
+    <div class="dialogTemplates">
+        <div class="markAsReadDialog">
+            Reports.markAsReadDialogText<br>
+            Reports.markedAsReadCount&nbsp;<span data-total-count="0" class="count">0</span>
+
+            <div class="dialogButtons">
+                <button type="submit" class="textButtonV1 grey" value="Batalkan" onclick="Travian.Game.Reports.closeDialog()" id="buttonI5" version="textButtonV1">Batalkan</button><script type="text/javascript" id="buttonI5_script">
+        jQuery('#buttonI5').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 grey","value":"Batalkan","onclick":"Travian.Game.Reports.closeDialog()","id":"buttonI5","version":"textButtonV1","title":"Batalkan"}]);
+        });
+    </script>
+                <button type="submit" class="textButtonV1 grey confirm negativeAction" value="Reports.markAllAsRead" onclick="Travian.Game.Reports.processMarkAsRead()" data-text-all="Reports.markAllAsRead" data-text-selected="Reports.markSelectedAsRead" data-text-category="Reports.markCategoryAsRead" id="buttonc6" version="textButtonV1">Reports.markAllAsRead</button><script type="text/javascript" id="buttonc6_script">
+        jQuery('#buttonc6').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 grey confirm negativeAction","value":"Reports.markAllAsRead","onclick":"Travian.Game.Reports.processMarkAsRead()","data-text-all":"Reports.markAllAsRead","data-text-selected":"Reports.markSelectedAsRead","data-text-category":"Reports.markCategoryAsRead","id":"buttonc6","version":"textButtonV1","title":"Reports.markAllAsRead"}]);
+        });
+    </script>            </div>
+
+            <label>
+                <input type="checkbox" class="hideMarkAsReadDialog" onchange="Travian.Game.Preferences.set('hideMarkAsReadDialog', this.checked)"> Reports.dontWarnAgain            </label>
+        </div>
+
+        <div class="deleteDialog">
+            <div class="description">
+                <p data-js="dialog-intro" data-text-selected="Reports.deleteDialogTextSelected" data-text-all="Reports.deleteDialogTextAll">Reports.deleteDialogTextAll</p>
+                <p>Reports.deletedReportsCount&nbsp;<span data-total-count="0" class="count">0</span></p>
+            </div>
+
+            <div class="dialogButtons">
+                <button type="submit" class="textButtonV1 grey" value="Batalkan" onclick="Travian.Game.Reports.closeDialog()" id="buttonx7" version="textButtonV1">Batalkan</button><script type="text/javascript" id="buttonx7_script">
+        jQuery('#buttonx7').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 grey","value":"Batalkan","onclick":"Travian.Game.Reports.closeDialog()","id":"buttonx7","version":"textButtonV1","title":"Batalkan"}]);
+        });
+    </script>
+                <button type="submit" class="textButtonV1 grey confirm negativeAction" value="Reports.deleteAllReports" onclick="Travian.Game.Reports.processDelete(false)" data-text-all="Reports.deleteAllReports" data-text-selected="Reports.deleteSelectedReports" data-text-category="Reports.deleteCategoryReports" id="buttonB8" version="textButtonV1">Reports.deleteAllReports</button><script type="text/javascript" id="buttonB8_script">
+        jQuery('#buttonB8').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 grey confirm negativeAction","value":"Reports.deleteAllReports","onclick":"Travian.Game.Reports.processDelete(false)","data-text-all":"Reports.deleteAllReports","data-text-selected":"Reports.deleteSelectedReports","data-text-category":"Reports.deleteCategoryReports","id":"buttonB8","version":"textButtonV1","title":"Reports.deleteAllReports"}]);
+        });
+    </script>            </div>
+
+            <label>
+                <input type="checkbox" class="hideDeleteDialog" onchange="Travian.Game.Preferences.set('hideDeleteDialog', this.checked)"> Reports.dontWarnAgain            </label>
+        </div>
+    </div>
+</div>
+<table id="inbox-size-table"><thead><tr><td>Inbox - Semua laporan yang tidak diarsipkan akan dihapus setelah 3 jam.</td></tr></thead></table>
+<script type="text/javascript">
+    jQuery(function() {
+        if (typeof Travian !== 'undefined' && Travian.Game && Travian.Game.Reports) {
+            Travian.Game.Reports.indexUrl = window.location.href;
+            Travian.Game.Reports.updateContent();
+        }
+    });
+</script>
+                    </div>

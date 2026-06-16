@@ -1,0 +1,83 @@
+<div id="content" class="statistics statisticsWonderoftheworld">
+                        <h1 class="titleInHeader">Statistik</h1><style type="text/css">
+    img.flags {
+        margin-top: 5px;
+        height: 11px;
+        width: 16px;
+        background-image: url(//gpack.ttwars.com/2534/mainPage/img_ltr/misc/flags/country_sprite.png);
+        border-top: 1px solid #AAA;
+    }
+</style>
+<a id="tabFavorButton" class="contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'statistics',number: 'wonderoftheworld'},success: function(data) {if (data.success) { jQuery('.tabFavorWrapper .favor').removeClass('favorActive');jQuery('.tabFavorWrapper .favor.favorKeywonderoftheworld').addClass('favorActive');}}});return false;">&nbsp;</a>
+
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKeyplayer        ">
+                    <a id="buttonD1" title="" class="tabItem  normal" href="/statistics/player">
+                        Pemain                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyalliance        ">
+                    <a id="buttoni2" title="" class="tabItem  normal" href="/statistics/alliance">
+                        Aliansi                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyvillage        ">
+                    <a id="buttonZ3" title="" class="tabItem  normal" href="/statistics/village">
+                        Desa                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyhero        ">
+                    <a id="buttonD4" title="" class="tabItem  normal" href="/statistics/hero">
+                        ksatria                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeygeneral        ">
+                    <a id="buttonu5" title="" class="tabItem  normal" href="/statistics/general">
+                        Umum                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeybonus        ">
+                    <a id="buttonm6" title="" class="tabItem  normal" href="/statistics/bonus">
+                        Bonus                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeywonderoftheworld        ">
+                    <a id="buttonb7" title="" class="tabItem  active" href="/statistics/wonderoftheworld">
+                        WW                    </a>
+                </div>
+                                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+
+
+
+<h4 class="round">WW</h4>
+
+
+<table id="wonder" class="borderGap">
+    <thead>
+        <tr>
+            <td class="ra"></td>
+            <td class="pla">Pemain</td>
+            <td class="nam">Nama</td>
+            <td class="banner"></td>
+            <td class="al">Aliansi</td>
+            <td class="lev">level</td>
+            <td class="at"></td>
+        </tr>
+    </thead>
+    <tbody class="hoverable">
+        <tr class="hover "><td class="ra">1.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=10101">WW Village (-50|50)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">2.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=10151">WW Village (0|50)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">3.</td><td class="pla"><a href="/profile/76">MasterMag</a></td><td class="nam"><a href="/karte.php?d=10201">Old 😘</a></td><td class="banner"></td><td class="al"><a href="/alliance/6">Friends</a></td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">4.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=17787">WW Village (-2|12)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">5.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=19006">WW Village (11|6)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">6.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=19787">WW Village (-12|2)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">7.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=20151">WW Village (-50|0)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">8.</td><td class="pla"><a href="/profile/58">Kikinka</a></td><td class="nam"><a href="/karte.php?d=20251">WW Village (50|0)</a></td><td class="banner"></td><td class="al"><a href="/alliance/6">Friends</a></td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">9.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=21818">WW Village (9|-8)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">10.</td><td class="pla"><a href="/profile/94">Entreles</a></td><td class="nam"><a href="/karte.php?d=22407">WW Village (-5|-11)</a></td><td class="banner"></td><td class="al"><a href="/alliance/6">Friends</a></td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">11.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=30201">WW Village (-50|-50)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">12.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=30251">WW Village (0|-50)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr><tr class="hover "><td class="ra">13.</td><td class="pla"><a href="/profile/1">Natars</a></td><td class="nam"><a href="/karte.php?d=30301">WW Village (50|-50)</a></td><td class="banner"></td><td class="al">-</td><td class="lev">0</td><td class="at">-</td></tr>    </tbody>
+</table>                    </div>

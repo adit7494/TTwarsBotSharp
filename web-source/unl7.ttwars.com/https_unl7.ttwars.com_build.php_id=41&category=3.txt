@@ -1,0 +1,178 @@
+<div id="content" class="build">
+                        <h1 class="titleInHeader">Bangun gedung baru</h1><div id="build" class="gid0">
+    <a id="tabFavorButton" class="contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'constructNewBuildingCategory',number: '3'},success: function(data) {if (data.success) { jQuery('.tabFavorWrapper .favor').removeClass('favorActive');jQuery('.tabFavorWrapper .favor.favorKey3').addClass('favorActive');}}});return false;">&nbsp;
+</a>
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKey1        ">
+                    <a id="buttong1" title="" class="tabItem  normal" href="/build.php?id=41&amp;category=1">
+                        Infrastruktur                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey2        ">
+                    <a id="buttonV2" title="" class="tabItem  normal" href="/build.php?id=41&amp;category=2">
+                        Militer                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey3        ">
+                    <a id="buttono3" title="" class="tabItem  active" href="/build.php?id=41&amp;category=3">
+                        Sumberdaya                    </a>
+                </div>
+                                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+<div id="contract_building5" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Pemotong Kayu</h2>
+        Di sinilah kayu anda akan dikirim oleh penebang untuk diproses. Berdasarkan tingkat bangunan, anda dapat meningkatkan produksi kayu sebuah desa hingga 25%    </div>
+
+    <img class="build_logo building big g5 gaul" src="/img/x.gif" alt="Pemotong Kayu">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">520</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">380</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">290</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">90</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">4</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">4</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <button type="button" class="textButtonV1 green contractLink build" value="Bangun gedung" onclick="window.location.href = 'dorf2.php?a=5&amp;id=41&amp;c=a3fd9d9efadd'; return false;" id="buttonc4" version="textButtonV1">Bangun gedung</button><script type="text/javascript" id="buttonc4_script">
+        jQuery('#buttonc4').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Bangun gedung","onclick":"window.location.href = 'dorf2.php?a=5&id=41&c=a3fd9d9efadd'; return false;","id":"buttonc4","version":"textButtonV1","title":"Bangun gedung"}]);
+        });
+    </script>                            <div class="inlineIcon duration">
+                    <div class="iconWrapper"><i class="clock_medium"></i></div>
+                    <span class="value ">0:00:00</span>
+                </div>
+                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building6" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Pabrik Bata</h2>
+        Tempat pembuatan batu bata mengkonversi tanah liat menjadi batu bata . berdasarkan tingkatannya, batu bata anda bisa meningkatkan produksi liat sampai 25%    </div>
+
+    <img class="build_logo building big g6 gaul" src="/img/x.gif" alt="Pabrik Bata">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">440</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">480</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">320</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">50</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">3</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">3</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <button type="button" class="textButtonV1 green contractLink build" value="Bangun gedung" onclick="window.location.href = 'dorf2.php?a=6&amp;id=41&amp;c=a3fd9d9efadd'; return false;" id="buttonu5" version="textButtonV1">Bangun gedung</button><script type="text/javascript" id="buttonu5_script">
+        jQuery('#buttonu5').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Bangun gedung","onclick":"window.location.href = 'dorf2.php?a=6&id=41&c=a3fd9d9efadd'; return false;","id":"buttonu5","version":"textButtonV1","title":"Bangun gedung"}]);
+        });
+    </script>                            <div class="inlineIcon duration">
+                    <div class="iconWrapper"><i class="clock_medium"></i></div>
+                    <span class="value ">0:00:00</span>
+                </div>
+                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building7" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Pelebur Besi</h2>
+        Di sinilah besi anda diolah. Berdasarkan tingkat bangunan, Anda meningkatkan produksi tambang besi sebuah desa hingga 25 persen.    </div>
+
+    <img class="build_logo building big g7 gaul" src="/img/x.gif" alt="Pelebur Besi">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">200</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">450</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">510</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">120</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">6</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">6</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <button type="button" class="textButtonV1 green contractLink build" value="Bangun gedung" onclick="window.location.href = 'dorf2.php?a=7&amp;id=41&amp;c=a3fd9d9efadd'; return false;" id="buttonE6" version="textButtonV1">Bangun gedung</button><script type="text/javascript" id="buttonE6_script">
+        jQuery('#buttonE6').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Bangun gedung","onclick":"window.location.href = 'dorf2.php?a=7&id=41&c=a3fd9d9efadd'; return false;","id":"buttonE6","version":"textButtonV1","title":"Bangun gedung"}]);
+        });
+    </script>                            <div class="inlineIcon duration">
+                    <div class="iconWrapper"><i class="clock_medium"></i></div>
+                    <span class="value ">0:00:00</span>
+                </div>
+                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+</div>                    </div>

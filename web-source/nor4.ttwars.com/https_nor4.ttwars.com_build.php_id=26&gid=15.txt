@@ -1,0 +1,91 @@
+<div id="content" class="build">
+                        <h1 class="titleInHeader">Bangunan Utama <span class="level">Tingkat  1</span></h1><div id="build" class="gid15 level1">
+        <div class="upgradeHeader levelSpecificInfo">
+        <a onclick="Travian.Game.Manual.open('building', 15);">
+            <img class="buildingIllustration g15 hun" alt="Bangunan Utama" src="/img/x.gif">
+        </a>
+                    <table cellpadding="1" cellspacing="1" id="build_value" class="transparent">
+                <tbody><tr class="overall"><th></th><td></td></tr><tr class="currentLevel"><th>Waktu pembangunan saat ini:</th><td><span class="number">100</span> persen</td></tr><tr class="nextPossible"><th>Waktu pembangunan pada tingkat 2:</th><td><span class="number">96</span> persen</td></tr>            </tbody></table>
+            </div>
+    <div class="buildingDescription ">
+        <div class="headline">
+            <div class="openedClosedSwitch switchOpened">
+            </div>
+            <h4>Deskripsi</h4>
+        </div>
+        <div class="description">
+            Bangunan utama adalah tempat tinggal mandor desa. Semakin tinggi tingkatannya maka semakin cepat pekerja bisa menyelesaikan pembangunan.        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(function () {
+            Travian.Game.BuildingUpgradeView.initialize();
+        })
+    </script>
+
+            <script type="text/javascript">
+            function getGidX() {
+                return { additionalData: { gid: 26 } };
+            }
+        </script>
+                <div class="upgradeBuilding ">
+
+            <div id="contract" class="contractWrapper">
+                <div class="inlineIconList resourceWrapper">
+                    <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">90</span></div>
+                    <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">50</span></div>
+                    <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">75</span></div>
+                    <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">25</span></div>
+                    <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">1</span></div>
+                </div>
+                            </div>
+            <div class="buildingBenefits ">
+                <div class="wrapper">
+                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">2</span>
+                        <span class="delta">(‭+‭1‬‬)</span>
+                    </div>
+                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">2</span>
+                        <span class="delta">(‭+‭1‬‬)</span>
+                    </div>
+                                                                                                                                                                                                                                                    <div class="unit">
+                            <i class="constructionTime_medium"></i>
+                            <span class="value">100%</span>
+                            <span class="delta">(-4%)</span>
+                        </div>
+                                                            
+                    
+                    
+                                                                                
+                                    </div>
+            </div>
+                        <div class="upgradeButtonsContainer section2Enabled">
+                <div class="section1">
+                                            <button type="button" class="textButtonV1 green contractLink build" value="Tingkatkan ke level 2" onclick="window.location.href = 'dorf2.php?a=26&amp;c=0890664fd63f'; return false;" id="buttonH2" version="textButtonV1">Tingkatkan ke level 2</button><script type="text/javascript" id="buttonH2_script">
+        jQuery('#buttonH2').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Tingkatkan ke level 2","onclick":"window.location.href = 'dorf2.php?a=26&c=0890664fd63f'; return false;","id":"buttonH2","version":"textButtonV1","title":"Tingkatkan ke level 2"}]);
+        });
+    </script>                                                            <div class="inlineIcon duration"><div class="iconWrapper"><i class="clock_medium"></i></div><span class="value ">0:00:00</span></div>
+                                    </div>
+                <div class="section2">
+                                        <button type="button" class="textButtonV1 gold upgradeToMaxLevel" coins="6" onclick="" value="Tingkatkan ke level maksimal" id="buttonI1" version="textButtonV1">Tingkatkan ke level maksimal<i class="goldIcon"></i><span class="goldValue">6</span></button><script type="text/javascript" id="buttonI1_script">
+        jQuery('#buttonI1').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 gold upgradeToMaxLevel","title":"Tingkatkan ke level maksimal","coins":6,"wayOfPayment":{"featureKey":"upgradeToMaxLevel","context":"ExtraModules","dataCallback":"getGidX"},"onclick":"","value":"Tingkatkan ke level maksimal","id":"buttonI1","version":"textButtonV1"}]);
+        });
+    </script>                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+            <div class="clear"></div>
+<div class="clear"></div>
+    <br>
+    <h4 class="round">Buildings.mainBuilding.rearrange_title</h4>
+    <p>Buildings.mainBuilding.rearrange_desc</p>
+    <button type="button" class="textButtonV1 gold disabled" value="Buildings.mainBuilding.rearrange_button" disabled="" id="buttonp4" version="textButtonV1">Buildings.mainBuilding.rearrange_button</button><script type="text/javascript" id="buttonp4_script">
+        jQuery('#buttonp4').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 gold disabled","value":"Buildings.mainBuilding.rearrange_button","disabled":true,"title":"Buildings.mainBuilding.rearrange_disabled","id":"buttonp4","version":"textButtonV1"}]);
+        });
+    </script></div>                    </div>

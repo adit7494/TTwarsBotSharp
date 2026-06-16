@@ -1,0 +1,229 @@
+<div id="content" class="build">
+                        <h1 class="titleInHeader">Pandai Besi <span class="level">Tingkat  20</span></h1><div id="build" class="gid13 level20">
+        <div class="upgradeHeader ">
+        <a onclick="Travian.Game.Manual.open('building', 13);">
+            <img class="buildingIllustration g13 gaul isCity" alt="Pandai Besi" src="/img/x.gif">
+        </a>
+            </div>
+    <div class="buildingDescription ">
+        <div class="headline">
+            <div class="openedClosedSwitch switchOpened">
+            </div>
+            <h4>Deskripsi</h4>
+        </div>
+        <div class="description">
+            Senjata dan pakaian besi prajuritmu ditingkatkan dalam tungku leleh milik sang pandai besi. Dengan menambah tingkatnya kamu dapat memesan pembuatan pakaian besi dan persenjataan yang lebih baik.        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(function () {
+            Travian.Game.BuildingUpgradeView.initialize();
+        })
+    </script>
+
+            <script type="text/javascript">
+            function getGidX() {
+                return { additionalData: { gid: 35 } };
+            }
+        </script>
+        
+
+        <div class="upgradeBuilding completed">
+            <div class="completedMessage"><span class="errorMessage"><span class="none">Pandai Besi mencapai level maksimal.</span></span></div>
+            <div class="buildingBenefits completed">
+                <div class="wrapper">
+                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">77</span>
+                        <span class="delta">(‭+‭15‬‬)</span>
+                    </div>
+                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">62</span>
+                        <span class="delta">(‭+‭4‬‬)</span>
+                    </div>
+                    
+                                                                                                                                                                                                                                                
+                    
+                    
+                                                            
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+            <div class="clear"></div>
+<h4 class="round">Tingkatkan senjata dan baju besi</h4>
+<script type="text/javascript">
+        function getNr1() {return {additionalData: {nr: 1}};}
+        function getNr2() {return {additionalData: {nr: 2}};}
+        function getNr3() {return {additionalData: {nr: 3}};}
+        function getNr4() {return {additionalData: {nr: 4}};}
+        function getNr5() {return {additionalData: {nr: 5}};}
+        function getNr6() {return {additionalData: {nr: 6}};}
+        function getNr7() {return {additionalData: {nr: 7}};}
+        function getNr8() {return {additionalData: {nr: 8}};}
+    </script>
+<div class="build_details researches">
+    <div class="research">
+    <div class="bigUnitSection">
+        <a class="unitZoom" onclick="return Travian.Game.unitZoom(21, 'Phalanx');">
+            <img class="unitSection u21Section" src="/img/x.gif" alt="Phalanx">
+        </a> <a href="#" class="zoom" onclick="return Travian.Game.unitZoom(21);">
+            <img class="zoom" src="/img/x.gif" alt="zoom in">
+        </a>
+    </div>
+    <div class="information">
+        <div class="title">
+            <a onclick="Travian.Game.Manual.open('troop', 21);">
+                <img class="unit u21" src="/img/x.gif" alt="Phalanx"></a>
+            <a onclick="Travian.Game.Manual.open('troop', 21);">Phalanx</a> <span class="level">Tingkat  20</span>
+            <span class="furtherInfo">(inGame.present 3,024,023,111)</span>
+        </div>
+                <div class="cta">
+                        <br><span class="errorMessage">Phalanx mencapai level maksimal.</span>        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr><div class="research">
+    <div class="bigUnitSection">
+        <a class="unitZoom" onclick="return Travian.Game.unitZoom(22, 'Swordsman');">
+            <img class="unitSection u22Section" src="/img/x.gif" alt="Swordsman">
+        </a> <a href="#" class="zoom" onclick="return Travian.Game.unitZoom(22);">
+            <img class="zoom" src="/img/x.gif" alt="zoom in">
+        </a>
+    </div>
+    <div class="information">
+        <div class="title">
+            <a onclick="Travian.Game.Manual.open('troop', 22);">
+                <img class="unit u22" src="/img/x.gif" alt="Swordsman"></a>
+            <a onclick="Travian.Game.Manual.open('troop', 22);">Swordsman</a> <span class="level">Tingkat  20</span>
+            <span class="furtherInfo">(inGame.present 0)</span>
+        </div>
+                <div class="cta">
+                        <br><span class="errorMessage">Swordsman mencapai level maksimal.</span>        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr><div class="research">
+    <div class="bigUnitSection">
+        <a class="unitZoom" onclick="return Travian.Game.unitZoom(23, 'Pathfinder');">
+            <img class="unitSection u23Section" src="/img/x.gif" alt="Pathfinder">
+        </a> <a href="#" class="zoom" onclick="return Travian.Game.unitZoom(23);">
+            <img class="zoom" src="/img/x.gif" alt="zoom in">
+        </a>
+    </div>
+    <div class="information">
+        <div class="title">
+            <a onclick="Travian.Game.Manual.open('troop', 23);">
+                <img class="unit u23" src="/img/x.gif" alt="Pathfinder"></a>
+            <a onclick="Travian.Game.Manual.open('troop', 23);">Pathfinder</a> <span class="level">Tingkat  20</span>
+            <span class="furtherInfo">(inGame.present 0)</span>
+        </div>
+                <div class="cta">
+                        <br><span class="errorMessage">Pathfinder mencapai level maksimal.</span>        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr><div class="research">
+    <div class="bigUnitSection">
+        <a class="unitZoom" onclick="return Travian.Game.unitZoom(24, 'Guntur Theutates');">
+            <img class="unitSection u24Section" src="/img/x.gif" alt="Guntur Theutates">
+        </a> <a href="#" class="zoom" onclick="return Travian.Game.unitZoom(24);">
+            <img class="zoom" src="/img/x.gif" alt="zoom in">
+        </a>
+    </div>
+    <div class="information">
+        <div class="title">
+            <a onclick="Travian.Game.Manual.open('troop', 24);">
+                <img class="unit u24" src="/img/x.gif" alt="Guntur Theutates"></a>
+            <a onclick="Travian.Game.Manual.open('troop', 24);">Guntur Theutates</a> <span class="level">Tingkat  20</span>
+            <span class="furtherInfo">(inGame.present 0)</span>
+        </div>
+                <div class="cta">
+                        <br><span class="errorMessage">Guntur Theutates mencapai level maksimal.</span>        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr><div class="research">
+    <div class="bigUnitSection">
+        <a class="unitZoom" onclick="return Travian.Game.unitZoom(25, 'Druidrider');">
+            <img class="unitSection u25Section" src="/img/x.gif" alt="Druidrider">
+        </a> <a href="#" class="zoom" onclick="return Travian.Game.unitZoom(25);">
+            <img class="zoom" src="/img/x.gif" alt="zoom in">
+        </a>
+    </div>
+    <div class="information">
+        <div class="title">
+            <a onclick="Travian.Game.Manual.open('troop', 25);">
+                <img class="unit u25" src="/img/x.gif" alt="Druidrider"></a>
+            <a onclick="Travian.Game.Manual.open('troop', 25);">Druidrider</a> <span class="level">Tingkat  20</span>
+            <span class="furtherInfo">(inGame.present 1,555,654,272)</span>
+        </div>
+                <div class="cta">
+                        <br><span class="errorMessage">Druidrider mencapai level maksimal.</span>        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr><div class="research">
+    <div class="bigUnitSection">
+        <a class="unitZoom" onclick="return Travian.Game.unitZoom(26, 'Haeduan');">
+            <img class="unitSection u26Section" src="/img/x.gif" alt="Haeduan">
+        </a> <a href="#" class="zoom" onclick="return Travian.Game.unitZoom(26);">
+            <img class="zoom" src="/img/x.gif" alt="zoom in">
+        </a>
+    </div>
+    <div class="information">
+        <div class="title">
+            <a onclick="Travian.Game.Manual.open('troop', 26);">
+                <img class="unit u26" src="/img/x.gif" alt="Haeduan"></a>
+            <a onclick="Travian.Game.Manual.open('troop', 26);">Haeduan</a> <span class="level">Tingkat  20</span>
+            <span class="furtherInfo">(inGame.present 285,064,105)</span>
+        </div>
+                <div class="cta">
+                        <br><span class="errorMessage">Haeduan mencapai level maksimal.</span>        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr><div class="research">
+    <div class="bigUnitSection">
+        <a class="unitZoom" onclick="return Travian.Game.unitZoom(27, 'Pendobrak');">
+            <img class="unitSection u27Section" src="/img/x.gif" alt="Pendobrak">
+        </a> <a href="#" class="zoom" onclick="return Travian.Game.unitZoom(27);">
+            <img class="zoom" src="/img/x.gif" alt="zoom in">
+        </a>
+    </div>
+    <div class="information">
+        <div class="title">
+            <a onclick="Travian.Game.Manual.open('troop', 27);">
+                <img class="unit u27" src="/img/x.gif" alt="Pendobrak"></a>
+            <a onclick="Travian.Game.Manual.open('troop', 27);">Pendobrak</a> <span class="level">Tingkat  20</span>
+            <span class="furtherInfo">(inGame.present 0)</span>
+        </div>
+                <div class="cta">
+                        <br><span class="errorMessage">Pendobrak mencapai level maksimal.</span>        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr><div class="research">
+    <div class="bigUnitSection">
+        <a class="unitZoom" onclick="return Travian.Game.unitZoom(28, 'Trebuchet');">
+            <img class="unitSection u28Section" src="/img/x.gif" alt="Trebuchet">
+        </a> <a href="#" class="zoom" onclick="return Travian.Game.unitZoom(28);">
+            <img class="zoom" src="/img/x.gif" alt="zoom in">
+        </a>
+    </div>
+    <div class="information">
+        <div class="title">
+            <a onclick="Travian.Game.Manual.open('troop', 28);">
+                <img class="unit u28" src="/img/x.gif" alt="Trebuchet"></a>
+            <a onclick="Travian.Game.Manual.open('troop', 28);">Trebuchet</a> <span class="level">Tingkat  20</span>
+            <span class="furtherInfo">(inGame.present 0)</span>
+        </div>
+                <div class="cta">
+                        <br><span class="errorMessage">Trebuchet mencapai level maksimal.</span>        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+</div>                    </div>

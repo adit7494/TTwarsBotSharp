@@ -1,0 +1,481 @@
+<div id="content" class="statistics statisticsPlayer">
+                        <h1 class="titleInHeader">Statistik</h1><style type="text/css">
+    img.flags {
+        margin-top: 5px;
+        height: 11px;
+        width: 16px;
+        background-image: url(//gpack.ttwars.com/2534/mainPage/img_ltr/misc/flags/country_sprite.png);
+        border-top: 1px solid #AAA;
+    }
+</style>
+<a id="tabFavorButton" class="contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'statistics',number: 'player'},success: function(data) {if (data.success) { jQuery('.tabFavorWrapper .favor').removeClass('favorActive');jQuery('.tabFavorWrapper .favor.favorKeyplayer').addClass('favorActive');}}});return false;">&nbsp;</a>
+
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKeyplayer        ">
+                    <a id="buttony1" title="" class="tabItem  active" href="/statistics/player">
+                        Pemain                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyalliance        ">
+                    <a id="buttonn2" title="" class="tabItem  normal" href="/statistics/alliance">
+                        Aliansi                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyvillage        ">
+                    <a id="buttonU3" title="" class="tabItem  normal" href="/statistics/village">
+                        Desa                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyhero        ">
+                    <a id="buttony4" title="" class="tabItem  normal" href="/statistics/hero">
+                        ksatria                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeygeneral        ">
+                    <a id="buttonX5" title="" class="tabItem  normal" href="/statistics/general">
+                        Umum                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeybonus        ">
+                    <a id="buttonH6" title="" class="tabItem  normal" href="/statistics/bonus">
+                        Bonus                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeywonderoftheworld        ">
+                    <a id="buttonh7" title="" class="tabItem  normal" href="/statistics/wonderoftheworld">
+                        WW                    </a>
+                </div>
+                                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+
+        <div class="contentNavi tabNavi tabFavorSubWrapper">
+        <div title="" class="container normal">
+            <div class="background-start">&nbsp;</div>
+            <div class="background-end">&nbsp;</div>
+            <div class="content favor  favorKey0">
+                <a id="buttonu8" href="/statistics/player?idSub=0" class="tabItem">
+                    Gambaran                    <img src="/img/x.gif" class="favorIcon" alt="Tab ini disetel sebagai favorit">
+                </a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            if (jQuery('#buttonu8')) {
+                jQuery('#buttonu8').click(function (event) {
+                    jQuery(window).trigger('tabClicked', [this, {
+                        "class": "normal",
+                        "title": false,
+                        "target": false,
+                        "id": "buttonu8",
+                        "href": "/statistics/player?idSub=0",
+                        "onclick": false,
+                        "enabled": true,
+                        "text": "Gambaran",
+                        "dialog": false,
+                        "plusDialog": false,
+                        "goldclubDialog": false,
+                        "containerId": "",
+                        "buttonIdentifier": "buttonu8"
+                    }]);
+
+                });
+            }
+        </script>
+        <div title="" class="container normal">
+            <div class="background-start">&nbsp;</div>
+            <div class="background-end">&nbsp;</div>
+            <div class="content favor  favorKey1">
+                <a id="buttonB9" href="/statistics/player?idSub=1" class="tabItem">
+                    Penyerang                    <img src="/img/x.gif" class="favorIcon" alt="Tab ini disetel sebagai favorit">
+                </a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            if (jQuery('#buttonB9')) {
+                jQuery('#buttonB9').click(function (event) {
+                    jQuery(window).trigger('tabClicked', [this, {
+                        "class": "normal",
+                        "title": false,
+                        "target": false,
+                        "id": "buttonB9",
+                        "href": "/statistics/player?idSub=1",
+                        "onclick": false,
+                        "enabled": true,
+                        "text": "Penyerang",
+                        "dialog": false,
+                        "plusDialog": false,
+                        "goldclubDialog": false,
+                        "containerId": "",
+                        "buttonIdentifier": "buttonB9"
+                    }]);
+
+                });
+            }
+        </script>
+        <div title="" class="container normal">
+            <div class="background-start">&nbsp;</div>
+            <div class="background-end">&nbsp;</div>
+            <div class="content favor  favorKey2">
+                <a id="buttonU10" href="/statistics/player?idSub=2" class="tabItem">
+                    Pembela                    <img src="/img/x.gif" class="favorIcon" alt="Tab ini disetel sebagai favorit">
+                </a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            if (jQuery('#buttonU10')) {
+                jQuery('#buttonU10').click(function (event) {
+                    jQuery(window).trigger('tabClicked', [this, {
+                        "class": "normal",
+                        "title": false,
+                        "target": false,
+                        "id": "buttonU10",
+                        "href": "/statistics/player?idSub=2",
+                        "onclick": false,
+                        "enabled": true,
+                        "text": "Pembela",
+                        "dialog": false,
+                        "plusDialog": false,
+                        "goldclubDialog": false,
+                        "containerId": "",
+                        "buttonIdentifier": "buttonU10"
+                    }]);
+                });
+            }
+        </script>
+        <div title="" class="container active">
+            <div class="background-start">&nbsp;</div>
+            <div class="background-end">&nbsp;</div>
+            <div class="content favor  favorKey3">
+                <a id="buttonN11" href="/statistics/player?idSub=3" class="tabItem">
+                    10 besar                    <img src="/img/x.gif" class="favorIcon" alt="Tab ini disetel sebagai favorit">
+                </a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            if (jQuery('#buttonN11')) {
+                jQuery('#buttonN11').click(function (event) {
+                    jQuery(window).trigger('tabClicked', [this, {
+                        "class": "active",
+                        "title": false,
+                        "target": false,
+                        "id": "buttonN11",
+                        "href": "/statistics/player?idSub=3",
+                        "onclick": false,
+                        "enabled": true,
+                        "text": "10 besar",
+                        "dialog": false,
+                        "plusDialog": false,
+                        "goldclubDialog": false,
+                        "containerId": "",
+                        "buttonIdentifier": "buttonN11"
+                    }]);
+                });
+            }
+        </script>
+        <a type="submit" id="nestedTabFavorButton" class="icon nestedTabRowButton" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'statisticsTablePlayer',number: '3'},success: function(data) {if (data.success) { jQuery('.tabFavorSubWrapper .favor').removeClass('favorActive');jQuery('.tabFavorSubWrapper .favor.favorKey3').addClass('favorActive');}}});return false;">
+            <img src="/img/x.gif" class="&nbsp;" alt="&nbsp;"></a>
+        <div class="clear"></div>
+    </div>
+
+
+
+<div class="top10Wrapper">
+            <h4 class="round small top top10_offs">Statistics.top10.PvP of the week</h4>
+        <table cellpadding="1" cellspacing="1" id="top10_offs" class="top10 row_table_data borderGap">
+            <thead>
+                <tr>
+                    <td class="ra">No.</td>
+                                            <td></td>
+                                        <td class="pla">Pemain</td>
+                    <td class="val">poin</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hover">
+    <td class="ra fc">1.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe1_medium"></i></td>
+    <td class="pla "><a href="/profile/97">sparco</a></td>
+    <td class="val lc">71,287</td>
+</tr><tr class="hover">
+    <td class="ra fc">2.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">3.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">4.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">5.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">6.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">7.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">8.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">9.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">10.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr><td colspan="4" class="empty"></td></tr><tr class="own hl">
+    <td class="ra fc">?</td>
+    <td class="tribe fc"><i class="tribe7_medium"></i></td>
+    <td class="pla "><a href="/profile/142">Nur</a></td>
+    <td class="val lc">0</td>
+</tr>            </tbody>
+        </table>
+        <br>
+                <h4 class="round small top top10_offs">Statistics.top10.PvE of the week</h4>
+        <table cellpadding="1" cellspacing="1" id="top10_offs" class="top10 row_table_data borderGap">
+            <thead>
+                <tr>
+                    <td class="ra">No.</td>
+                                            <td></td>
+                                        <td class="pla">Pemain</td>
+                    <td class="val">poin</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hover">
+    <td class="ra fc">1.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe3_medium"></i></td>
+    <td class="pla "><a href="/profile/102">Hunters</a></td>
+    <td class="val lc">22,390</td>
+</tr><tr class="hover">
+    <td class="ra fc">2.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">3.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">4.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">5.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">6.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">7.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">8.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">9.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">10.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr><td colspan="4" class="empty"></td></tr><tr class="own hl">
+    <td class="ra fc">?</td>
+    <td class="tribe fc"><i class="tribe7_medium"></i></td>
+    <td class="pla "><a href="/profile/142">Nur</a></td>
+    <td class="val lc">0</td>
+</tr>            </tbody>
+        </table>
+        <br>
+        </div>
+
+<div id="statRight" class="top10Wrapper">
+            <h4 class="round small top top10_defs">Pembela minggu ini</h4>
+        <table cellpadding="1" cellspacing="1" id="top10_defs" class="top10 row_table_data borderGap">
+            <thead>
+                <tr>
+                    <td class="ra">No.</td>
+                                            <td></td>
+                                        <td class="pla">Pemain</td>
+                    <td class="val">poin</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hover">
+    <td class="ra fc">1.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe6_medium"></i></td>
+    <td class="pla "><a href="/profile/67">BlackWolf</a></td>
+    <td class="val lc">6,581</td>
+</tr><tr class="hover">
+    <td class="ra fc">2.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">3.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">4.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">5.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">6.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">7.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">8.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">9.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr class="hover">
+    <td class="ra fc">10.&nbsp;</td>
+    <td class="tribe fc"></td>
+    <td class="pla ">-</td>
+    <td class="val lc">-</td>
+</tr><tr><td colspan="4" class="empty"></td></tr><tr class="own hl">
+    <td class="ra fc">?</td>
+    <td class="tribe fc"><i class="tribe7_medium"></i></td>
+    <td class="pla "><a href="/profile/142">Nur</a></td>
+    <td class="val lc">0</td>
+</tr>            </tbody>
+        </table>
+        <br>
+                <h4 class="round small top top10_raiders">Perampok minggu ini</h4>
+        <table cellpadding="1" cellspacing="1" id="top10_raiders" class="top10 row_table_data borderGap">
+            <thead>
+                <tr>
+                    <td class="ra">No.</td>
+                                            <td></td>
+                                        <td class="pla">Pemain</td>
+                    <td class="val">Sumber daya</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hover">
+    <td class="ra fc">1.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe6_medium"></i></td>
+    <td class="pla "><a href="/profile/56">Manemoj</a></td>
+    <td class="val lc">234,725,473,611</td>
+</tr><tr class="hover">
+    <td class="ra fc">2.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe7_medium"></i></td>
+    <td class="pla "><a href="/profile/57">God Of War</a></td>
+    <td class="val lc">115,386,943,392</td>
+</tr><tr class="hover">
+    <td class="ra fc">3.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe7_medium"></i></td>
+    <td class="pla "><a href="/profile/85">Pires</a></td>
+    <td class="val lc">55,878,637,265</td>
+</tr><tr class="hover">
+    <td class="ra fc">4.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe1_medium"></i></td>
+    <td class="pla "><a href="/profile/59">PSYCHO</a></td>
+    <td class="val lc">17,466,413,686</td>
+</tr><tr class="hover">
+    <td class="ra fc">5.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe6_medium"></i></td>
+    <td class="pla "><a href="/profile/127">OOP</a></td>
+    <td class="val lc">10,578,513,886</td>
+</tr><tr class="hover">
+    <td class="ra fc">6.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe1_medium"></i></td>
+    <td class="pla "><a href="/profile/72">Kharon</a></td>
+    <td class="val lc">5,310,061,959</td>
+</tr><tr class="hover">
+    <td class="ra fc">7.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe6_medium"></i></td>
+    <td class="pla "><a href="/profile/82">PersianGolf</a></td>
+    <td class="val lc">1,988,973,377</td>
+</tr><tr class="hover">
+    <td class="ra fc">8.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe1_medium"></i></td>
+    <td class="pla "><a href="/profile/76">MasterMag</a></td>
+    <td class="val lc">1,530,820,960</td>
+</tr><tr class="hover">
+    <td class="ra fc">9.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe2_medium"></i></td>
+    <td class="pla "><a href="/profile/139">mamad_rk</a></td>
+    <td class="val lc">1,341,289,140</td>
+</tr><tr class="hover">
+    <td class="ra fc">10.&nbsp;</td>
+            <td class="tribe fc"><i class="tribe3_medium"></i></td>
+    <td class="pla "><a href="/profile/102">Hunters</a></td>
+    <td class="val lc">253,994,448</td>
+</tr><tr><td colspan="4" class="empty"></td></tr><tr class="own hl">
+    <td class="ra fc">?</td>
+    <td class="tribe fc"><i class="tribe7_medium"></i></td>
+    <td class="pla "><a href="/profile/142">Nur</a></td>
+    <td class="val lc">0</td>
+</tr>            </tbody>
+        </table>
+        <br>
+        </div>
+
+<style>
+    div.statistics td.tribe {
+        width: 22px;
+        padding: 2px;
+    }
+</style>                    </div>

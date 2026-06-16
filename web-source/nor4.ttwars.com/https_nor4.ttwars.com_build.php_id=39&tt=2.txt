@@ -1,0 +1,135 @@
+<div id="content" class="build">
+                        <h1 class="titleInHeader">Titik Temu <span class="level">Tingkat  2</span></h1><div id="build" class="gid16 level2">
+    <a id="tabFavorButton" class="contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'buildingRallyPoint',number: '2'},success: function(data) {if (data.success) { jQuery('.tabFavorWrapper .favor').removeClass('favorActive');jQuery('.tabFavorWrapper .favor.favorKey2').addClass('favorActive');}}});return false;">&nbsp;</a>
+
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKey0        ">
+                    <a id="buttonP6" title="" class="tabItem  normal" href="/build.php?tt=0&amp;id=39">
+                        Pengelolaan                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey1        ">
+                    <a id="buttonK7" title="" class="tabItem  normal" href="/build.php?tt=1&amp;id=39">
+                        Gambaran                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey2        ">
+                    <a id="buttonQ8" title="" class="tabItem  active" href="/build.php?tt=2&amp;id=39">
+                        Kirim Pasukan                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey3        ">
+                    <a id="buttonx9" title="" class="tabItem  normal" href="/build.php?tt=3&amp;id=39">
+                        Simulasi                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey99        ">
+                    <a id="buttonn10" class="tabItem gold normal" href="#">
+                        Daftar rampokan                    </a>
+                </div>
+                                                    
+                        <script type="text/javascript">
+                            if (jQuery('#buttonn10')) {
+                                jQuery('#buttonn10').click(function (event) {
+                                    jQuery(window).trigger('tabClicked', [this, {
+                                        "goldclubDialog": {
+                                            "featureKey": "raidList",
+                                            "infoIcon": "https:\/\/answers.travian.com\/index.php?aid=Travian Answers#go2answer",
+                                            "cssClass": "premiumFeaturePackage premiumFeatureGoldclub paymentShopV4",
+                                            "premiumFeatureDialogVersion": 2,
+                                            "version": 2,
+                                            "paymentShopVersion": 4
+                                        },
+                                    }]);
+                                });
+                            }
+                        </script>
+
+                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+<div class="a2b">
+    <form method="post" name="snd" action="/build.php?id=39&amp;tt=2">
+        <input type="hidden" name="timestamp" value="1781543598">
+        <input type="hidden" name="timestamp_checksum" value="EusCmJ">
+        <input type="hidden" name="b" value="1">
+        <input type="hidden" name="currentDid" value="17833">
+
+        <input type="hidden" name="mpvt_token" value="0a812f8eed7b">
+        <table id="troops" cellpadding="1" cellspacing="1">
+             <tbody><tr><td class="line-first column-first large"><img class="unit u61" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 61);" alt="Tentara Bayaran"> <input type="text" pattern="\d*" class="text  disabled" name="troops[0][t1]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td><td class="line-first  large"><img class="unit u64" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 64);" alt="Penunggang Steppe"> <input type="text" pattern="\d*" class="text  disabled" name="troops[0][t4]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td><td class="line-first  regular"><img class="unit u67" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 67);" alt="Pendobrak "> <input type="text" pattern="\d*" class="text  disabled" name="troops[0][t7]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td><td class="line-first column-last small"><img class="unit u69" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 69);" alt="Logades"> <input type="text" pattern="\d*" class="text  disabled" name="troops[0][t9]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td> </tr> <tr><td class="column-first large"><img class="unit u62" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 62);" alt="Prajurit Busur"> <input type="text" class="text  disabled" name="troops[0][t2]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td><td class=" large"><img class="unit u65" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 65);" alt="Pemanah Jitu"> <input type="text" class="text  disabled" name="troops[0][t5]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td><td class=" regular"><img class="unit u68" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 68);" alt="Katapel"> <input type="text" class="text  disabled" name="troops[0][t8]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td><td class="column-last small"><img class="unit u70" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 70);" alt="Imigran"> <input type="text" class="text  disabled" name="troops[0][t10]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td> </tr> <tr><td class="line-last column-first large"><img class="unit u63" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 63);" alt="Pengintai"> <input type="text" class="text  disabled" name="troops[0][t3]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td><td class="line-last  large"><img class="unit u66" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', 66);" alt="Perampok"> <input type="text" class="text  disabled" name="troops[0][t6]" value="" maxlength="6">&nbsp;<span class="errorMessage"> / 0</span></td><td class="line-last regular"></td><td class="line-last column-last small"><img class="unit uhero" src="/img/x.gif" onclick="Travian.Game.Manual.open('troop', hero);" alt="kesatria "> <input type="text" class="text " name="troops[0][t11]" value="" maxlength="6">&nbsp; / <a href="#" onclick="jQuery('input[name=\'troops[0][t11]\']').val(1); return false;">1</a></td> </tr>        </tbody></table>
+
+        <div class="destination">
+                <table cellpadding="0" cellspacing="0" class="transparent compact">
+                    <tbody>
+                    <tr>
+                        <td><span>Desa:</span></td>
+                        <td class="compactInput" style="position: relative;">
+                            <input type="text" id="enterVillageName" class="text village" name="dname" value="" maxlength="25" autocomplete="off"><ul id="enterVillageName-autocompleter" class="autocompleter-choices" style="z-index: 42; display: none; top: 23.3906px;"></ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" class="transparent compact">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <span class="or">atau </span>
+                            <div class="coordinatesInput">
+                                <div class="xCoord">
+                                    <label for="xCoordInput">X:</label>
+                                    <input type="text" maxlength="4" value="" name="x" id="xCoordInput" class="text coordinates x ">
+                                </div>
+                                <div class="yCoord">
+                                    <label for="yCoordInput">Y:</label>
+                                    <input type="text" maxlength="4" value="" name="y" id="yCoordInput" class="text coordinates y ">
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                    <script type="text/javascript">
+                        jQuery(function () {
+                            new Travian.Game.AutoCompleter.VillageName(jQuery('#enterVillageName'));
+                        });
+                    </script>
+   
+        </div>
+        <div class="option">
+            <label>
+                <input type="radio" class="radio" name="c" value="2" checked="checked">
+                Bala bantuan            </label>
+            <br> <label> <input type="radio" class="radio" name="c" value="3">
+                Menyerang: Menyerang            </label>
+            <br>
+            <label>
+                <input type="radio" class="radio" name="c" value="4">
+                Menyerang: Serangan            </label>
+        </div>
+                <div class="clear"></div>
+        <button type="submit" class="textButtonV1 green" name="s1" id="btn_ok" value="Kirim" version="textButtonV1">Kirim</button><script type="text/javascript" id="btn_ok_script">
+        jQuery('#btn_ok').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 green","name":"s1","id":"btn_ok","value":"Kirim","version":"textButtonV1","title":"Kirim"}]);
+        });
+    </script>    </form>
+    </div>
+<script>
+jQuery(function () {
+    Travian.Game.RallyPoint.initialize(jQuery('#troops'));
+});
+</script>
+</div>                    </div>

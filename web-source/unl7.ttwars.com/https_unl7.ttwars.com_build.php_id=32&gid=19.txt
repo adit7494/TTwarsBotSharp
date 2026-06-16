@@ -1,0 +1,180 @@
+<div id="content" class="build">
+                        <h1 class="titleInHeader">Barak <span class="level">Tingkat  20</span></h1><div id="build" class="gid19 level20">
+        <div class="upgradeHeader levelSpecificInfo">
+        <a onclick="Travian.Game.Manual.open('building', 19);">
+            <img class="buildingIllustration g19 gaul isCity" alt="Barak" src="/img/x.gif">
+        </a>
+                    <table cellpadding="1" cellspacing="1" id="build_value" class="transparent">
+                <tbody><tr class="overall"><th></th><td></td></tr><tr class="currentLevel"><th>Waktu latihan bangunan saat ini:</th><td><span class="number">-86%</span> </td></tr>            </tbody></table>
+            </div>
+    <div class="buildingDescription ">
+        <div class="headline">
+            <div class="openedClosedSwitch switchOpened">
+            </div>
+            <h4>Deskripsi</h4>
+        </div>
+        <div class="description">
+            Di barak pasukan infantri bisa dilatih. Semakin tinggi tingkatannya maka semakin cepat pasukan bisa dilatih.        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(function () {
+            Travian.Game.BuildingUpgradeView.initialize();
+        })
+    </script>
+
+            <script type="text/javascript">
+            function getGidX() {
+                return { additionalData: { gid: 32 } };
+            }
+        </script>
+        
+
+        <div class="upgradeBuilding completed">
+            <div class="completedMessage"><span class="errorMessage"><span class="none">Barak mencapai level maksimal.</span></span></div>
+            <div class="buildingBenefits completed">
+                <div class="wrapper">
+                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">38</span>
+                        <span class="delta">(‭+‭8‬‬)</span>
+                    </div>
+                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">62</span>
+                        <span class="delta">(‭+‭4‬‬)</span>
+                    </div>
+                                            <div class="unit">
+                            <i class="infantryBonusTime_medium"></i>
+                            <span class="value">-86‬%‬</span>
+                            <span class="delta">(‭−‭2‬%‬)</span>
+                        </div>
+                    
+                                                                                                                                                                                                                                                
+                    
+                    
+                                                            
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+            <div class="clear"></div>
+                        <h4 class="round">Latih pasukan</h4>
+
+        
+                <form method="post" name="snd" action="/build.php?id=32">
+            <div class="buildActionOverview trainUnits">
+                <input type="hidden" name="id" value="32">
+                <input type="hidden" name="z" value="a3fd9d9efadd">
+                <input type="hidden" name="did" value="47567">
+                <input type="hidden" name="a" value="2">
+
+                                    <input type="hidden" name="s" value="1">
+                
+                                    <div id="favouriteTroops">
+                        <div class="action troop troop1 empty"></div><div class="action troop troop2 empty"></div><div class="action troop troop3 empty"></div><div class="action troop troop4 empty"></div><div class="action troop troop5 empty"></div><div class="action troop troop6 empty"></div><div class="action troop troop7 empty"></div><div class="action troop troop8 empty"></div><div class="action troop troop9 empty"></div><div class="action troop troop10 empty"></div>                    </div>
+                    <div id="nonFavouriteTroops">
+                        <div class="action first troop troop1">
+    <div class="innerTroopWrapper troop1 " data-troopid="1">
+                    <button type="button" class="favourite " data-troopid="1">
+                <i></i>
+            </button>
+                            <div class="bigUnitSection">
+                <a class="unitZoom" onclick="return Travian.Game.unitZoom(21, 'Phalanx');">
+                    <img class="unitSection u21Section" src="/img/x.gif" alt="Phalanx">
+                </a>
+            </div>
+                <div class="details">
+            <div class="tit">
+                                    <a onclick="Travian.Game.Manual.open('troop', 21)">
+                        <img class="unit u21" src="/img/x.gif" alt="Phalanx">
+                    </a>
+                
+                <a onclick="Travian.Game.Manual.open('troop', 21)">
+                    Phalanx</a>
+                                    <span class="level">level 20</span>
+                                <span class="furtherInfo">(tersedia 3,024,023,111)</span>
+            </div>
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">100</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">130</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">55</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">30</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">1</span></div>
+            </div>
+            <br>
+            <div class="inlineIcon duration"><i class="infantryBonusTime_medium"></i><span class="value ">00:00:00 (+1.171 ms)</span></div>
+                                                    <div class="cta">
+                    <button type="button" class="textButtonV1 gold exchange" value="Pertukaran sumber daya" did="47567" id="buttonH1" version="textButtonV1">Pertukaran sumber daya</button><script type="text/javascript" id="buttonH1_script">
+        jQuery('#buttonH1').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 gold exchange","value":"Pertukaran sumber daya","title":"Click here to exchange resources.","did":47567,"dialog":{"cssClass":"white","draggable":false,"overlayCancel":true,"buttonOk":false,"saveOnUnload":false,"cmd":"marketplace\/exchange-resources","data":{"cmd":"exchangeResources","defaultValues":{"tid":3,"nr":1,"btyp":1,"r1":195571945400,"r2":254243529020,"r3":107564569970,"r4":58671583620,"supply":1,"pzeit":1,"max":1955719454},"did":47567},"preventFormSubmit":true},"id":"buttonH1","version":"textButtonV1"}]);
+        });
+    </script>                    <div class="status none"></div>
+                    <span class="value">Jumlah</span>
+                    <input type="text" class="text" name="t1" value="0" maxlength="5"><span class="value"> / </span>
+                    <a href="#" onclick="jQuery(this).closest('div.details').find('input').val(16846); return false;">16,846</a>
+                </div>
+                    </div>
+        <div class="clear"></div>
+    </div>
+</div><div class="action troop troop2">
+    <div class="innerTroopWrapper troop2 " data-troopid="2">
+                    <button type="button" class="favourite " data-troopid="2">
+                <i></i>
+            </button>
+                            <div class="bigUnitSection">
+                <a class="unitZoom" onclick="return Travian.Game.unitZoom(22, 'Swordsman');">
+                    <img class="unitSection u22Section" src="/img/x.gif" alt="Swordsman">
+                </a>
+            </div>
+                <div class="details">
+            <div class="tit">
+                                    <a onclick="Travian.Game.Manual.open('troop', 22)">
+                        <img class="unit u22" src="/img/x.gif" alt="Swordsman">
+                    </a>
+                
+                <a onclick="Travian.Game.Manual.open('troop', 22)">
+                    Swordsman</a>
+                                    <span class="level">level 20</span>
+                                <span class="furtherInfo">(tersedia 0)</span>
+            </div>
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">140</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">150</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">185</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">60</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">1</span></div>
+            </div>
+            <br>
+            <div class="inlineIcon duration"><i class="infantryBonusTime_medium"></i><span class="value ">00:00:00 (+1.621 ms)</span></div>
+                                                    <div class="cta">
+                    <button type="button" class="textButtonV1 gold exchange" value="Pertukaran sumber daya" did="47567" id="buttonj2" version="textButtonV1">Pertukaran sumber daya</button><script type="text/javascript" id="buttonj2_script">
+        jQuery('#buttonj2').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 gold exchange","value":"Pertukaran sumber daya","title":"Click here to exchange resources.","did":47567,"dialog":{"cssClass":"white","draggable":false,"overlayCancel":true,"buttonOk":false,"saveOnUnload":false,"cmd":"marketplace\/exchange-resources","data":{"cmd":"exchangeResources","defaultValues":{"tid":3,"nr":2,"btyp":1,"r1":161209771800,"r2":172724755500,"r3":213027198450,"r4":69089902200,"supply":1,"pzeit":1,"max":1151498370},"did":47567},"preventFormSubmit":true},"id":"buttonj2","version":"textButtonV1"}]);
+        });
+    </script>                    <div class="status none"></div>
+                    <span class="value">Jumlah</span>
+                    <input type="text" class="text" name="t2" value="0" maxlength="5"><span class="value"> / </span>
+                    <a href="#" onclick="jQuery(this).closest('div.details').find('input').val(12033); return false;">12,033</a>
+                </div>
+                    </div>
+        <div class="clear"></div>
+    </div>
+</div><div class="action troop troop3 empty"></div><div class="action troop troop4 empty"></div><div class="action troop troop5 empty"></div><div class="action troop troop6 empty"></div><div class="action troop troop7 empty"></div><div class="action troop troop8 empty"></div><div class="action troop troop9 empty"></div><div class="action troop troop10 empty"></div>                    </div>
+                            </div>
+            <button type="submit" class="textButtonV1 green startTraining" name="s1" id="s1" value="Latih" version="textButtonV1">Latih</button><script type="text/javascript" id="s1_script">
+        jQuery('#s1').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 green startTraining","name":"s1","id":"s1","disabled":false,"value":"Latih","version":"textButtonV1","title":"Latih"}]);
+        });
+    </script>            
+            <script type="text/javascript">
+                jQuery(function () {
+                    Travian.Game.TrainingTroops.initialize();
+                });
+            </script>
+        </form>
+        
+
+
+</div>                    </div>

@@ -1,0 +1,121 @@
+<div id="content" class="build">
+                        <h1 class="titleInHeader">Bangunan Utama <span class="level">Tingkat  20</span></h1><div id="build" class="gid15 level20">
+        <div class="upgradeHeader levelSpecificInfo">
+        <a onclick="Travian.Game.Manual.open('building', 15);">
+            <img class="buildingIllustration g15 gaul isCity" alt="Bangunan Utama" src="/img/x.gif">
+        </a>
+                    <table cellpadding="1" cellspacing="1" id="build_value" class="transparent">
+                <tbody><tr class="overall"><th></th><td></td></tr><tr class="currentLevel"><th>Waktu pembangunan saat ini:</th><td><span class="number">50</span> persen</td></tr>            </tbody></table>
+            </div>
+    <div class="buildingDescription ">
+        <div class="headline">
+            <div class="openedClosedSwitch switchOpened">
+            </div>
+            <h4>Deskripsi</h4>
+        </div>
+        <div class="description">
+            Bangunan utama adalah tempat tinggal mandor desa. Semakin tinggi tingkatannya maka semakin cepat pekerja bisa menyelesaikan pembangunan.        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(function () {
+            Travian.Game.BuildingUpgradeView.initialize();
+        })
+    </script>
+
+            <script type="text/javascript">
+            function getGidX() {
+                return { additionalData: { gid: 26 } };
+            }
+        </script>
+        
+
+        <div class="upgradeBuilding completed">
+            <div class="completedMessage"><span class="errorMessage"><span class="none">Bangunan Utama mencapai level maksimal.</span></span></div>
+            <div class="buildingBenefits completed">
+                <div class="wrapper">
+                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">77</span>
+                        <span class="delta">(‭+‭15‬‬)</span>
+                    </div>
+                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">41</span>
+                        <span class="delta">(‭+‭3‬‬)</span>
+                    </div>
+                    
+                                                                                                                                                                    <div class="unit">
+                            <i class="constructionTime_medium"></i>
+                            <span class="value">50%</span>
+                            <span class="delta">(-2%)</span>
+                        </div>
+                                                                                                                        
+                    
+                    
+                                                            
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+            <div class="clear"></div>
+<h4 class="round">Hancurkan gedung</h4>
+<p>Jika Anda tidak membutuhkan bangunan lagi, Anda dapat memerintahkan ahli bangunan untuk menghancurkannya</p>
+<form class="demolish_building" action="/build.php?gid=15" method="post">
+    <input type="hidden" name="gid" value="15">
+    <input type="hidden" name="a" value="127">
+    <input type="hidden" name="c" value="a3fd9d9efadd">
+
+    <select id="demolish" name="abriss" class="dropdown">
+                    <option value="19">19 Toko Roti 5</option>
+                    <option value="20">20 Gudang  20</option>
+                    <option value="21">21 Lumbung 20</option>
+                    <option value="22">22 Kedutaan 20</option>
+                    <option value="23">23 Pusat Kebugaran 20</option>
+                    <option value="24">24 Kantor Dagang 20</option>
+                    <option value="25">25 Bengkel 20</option>
+                    <option value="26">26 Bangunan Utama 20</option>
+                    <option value="27">27 Gudang Ilmu 20</option>
+                    <option value="28">28 Balai Desa 20</option>
+                    <option value="29">29 Pasar 20</option>
+                    <option value="30">30 Penggilingan Gandum 5</option>
+                    <option value="31">31 Istana 20</option>
+                    <option value="32">32 Barak 20</option>
+                    <option value="33">33 Istal 20</option>
+                    <option value="34">34 Padepokan 20</option>
+                    <option value="35">35 Pandai Besi 20</option>
+                    <option value="37">37 Akademi 20</option>
+                    <option value="38">38 Ahli Perangkap 20</option>
+                    <option value="39">39 Titik Temu 20</option>
+                    <option value="40">40 Pagar Kayu 20</option>
+            </select>
+    <button type="submit" class="textButtonV1 green" id="btn_demolish" value="menghancurkan" version="textButtonV1">menghancurkan</button><script type="text/javascript" id="btn_demolish_script">
+        jQuery('#btn_demolish').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 green","id":"btn_demolish","value":"menghancurkan","version":"textButtonV1","title":"menghancurkan"}]);
+        });
+    </script>    <div class="demolishNow">
+        <button type="button" class="textButtonV1 gold " coins="20" value="Hancurkan sepenuhnya" id="buttont1" version="textButtonV1">Hancurkan sepenuhnya<i class="goldIcon"></i><span class="goldValue">20</span></button><script type="text/javascript" id="buttont1_script">
+        jQuery('#buttont1').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 gold ","title":"Segera hancurkan bangunan yang dipilih? Ini akan dihapus dari desa Anda","coins":20,"value":"Hancurkan sepenuhnya","dialog":{"saveOnUnload":false,"cssClass":"white","draggable":false,"overlayCancel":true,"buttonOk":false,"cmd":"ajax\/demolishNowPopup","data":{"cmd":"demolishNowPopup","additional":{"gidCallback":"getGid"},"context":"demolishNow","infoIcon":"http:\\\/\\\/t4.answers.travian.com\\\/index.php?aid=%%answers.demolishNow (en)%%#go2answer"},"preventFormSubmit":true},"id":"buttont1","version":"textButtonV1"}]);
+        });
+    </script>    </div>
+        <script type="text/javascript">
+            function getGid() {
+                var gidSelect = jQuery('#demolish');
+                return {gid: gidSelect.val()};
+            }
+        </script>
+    <div class="clear"></div>
+</form>
+
+    
+<div class="clear"></div>
+    <br>
+    <h4 class="round">Buildings.mainBuilding.rearrange_title</h4>
+    <p>Buildings.mainBuilding.rearrange_desc</p>
+    <button type="button" class="textButtonV1 gold" value="Buildings.mainBuilding.rearrange_button" onclick="window.location.href = '/dorf2.php?newdid=47567&amp;mode=rearrange'; return false;" id="buttonT2" version="textButtonV1">Buildings.mainBuilding.rearrange_button</button><script type="text/javascript" id="buttonT2_script">
+        jQuery('#buttonT2').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 gold","value":"Buildings.mainBuilding.rearrange_button","onclick":"window.location.href = '\/dorf2.php?newdid=47567&mode=rearrange'; return false;","id":"buttonT2","version":"textButtonV1","title":"Buildings.mainBuilding.rearrange_button"}]);
+        });
+    </script></div>                    </div>

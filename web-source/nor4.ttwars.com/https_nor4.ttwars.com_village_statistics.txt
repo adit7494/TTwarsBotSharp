@@ -1,0 +1,48 @@
+<div id="content" class="village3">
+                        <h1 class="titleInHeader">Peninjauan desa</h1><a id="tabFavorButton" class="contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api(&quot;favourite-tab&quot;,{data:{name:&quot;village\/statistics&quot;,key:&quot;overview&quot;},success:function(){jQuery(&quot;.tabFavorWrapper .favor&quot;).removeClass(&quot;favorActive&quot;);jQuery(&quot;.tabFavorWrapper .favor.favorKeyoverview&quot;).addClass(&quot;favorActive&quot;);}});return false;">&nbsp;</a>
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKeyoverview        ">
+                    <a id="buttonC1" title="" class="tabItem  active" href="/village/statistics/overview">
+                        Peninjauan                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyresources        ">
+                    <a id="buttonv2" title="" class="tabItem  normal" href="/village/statistics/resources">
+                        Sumberdaya                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeyculturepoints        ">
+                    <a id="buttono3" title="" class="tabItem  normal" href="/village/statistics/culturepoints">
+                        Nilai Budaya                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKeytroops        ">
+                    <a id="buttons4" title="" class="tabItem  normal" href="/village/statistics/troops">
+                        Pasukan                    </a>
+                </div>
+                                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+<table cellpadding="1" cellspacing="1" id="overview">
+	<thead>
+	<tr>
+		<td>Desa</td>
+		<td>Serangan</td>
+		<td>Bangunan</td>
+		<td>Pasukan</td>
+		<td>Pedagang</td>
+	</tr>
+	</thead>
+	<tbody>
+	<tr class="hl"><td class="vil fc"><a href="/dorf1.php?newdid=17833">Nur`s village</a></td><td class="att"><span class="errorMessage">-</span></td><td class="bui"><span class="errorMessage">-</span></td><td class="tro"><span class="errorMessage">-</span></td><td class="tra lc"><a href="/build.php?newdid=17833&amp;gid=17">‎‭‭‭0‬‬/‭‭0</a></td></tr>	</tbody>
+</table>
+                    </div>

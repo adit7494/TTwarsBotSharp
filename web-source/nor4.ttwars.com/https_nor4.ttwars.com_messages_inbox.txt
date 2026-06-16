@@ -1,0 +1,120 @@
+<div id="content" class="messages">
+                        <h1 class="titleInHeader">Pesan</h1><a id="tabFavorButton" class="contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'messages',number: '0'},success: function(data) {if (data.success) { jQuery('.tabFavorWrapper .favor').removeClass('favorActive');jQuery('.tabFavorWrapper .favor.favorKey0').addClass('favorActive');}}});return false;">&nbsp;</a>
+
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKey0        ">
+                    <a id="buttonL1" title="" class="tabItem  active" href="/messages/inbox">
+                        Kotak masuk                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey1        ">
+                    <a id="buttonU2" title="" class="tabItem  normal" href="/messages/write">
+                        Menulis                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey2        ">
+                    <a id="buttonJ3" title="" class="tabItem  normal" href="/messages/sent">
+                        Terkirim                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey3        ">
+                    <a id="buttono4" class="tabItem gold normal" href="#">
+                        Arsip                    </a>
+                </div>
+                                                    
+                        <script type="text/javascript">
+                            if (jQuery('#buttono4')) {
+                                jQuery('#buttono4').click(function (event) {
+                                    jQuery(window).trigger('tabClicked', [this, {
+                                        "goldclubDialog": {
+                                            "featureKey": "messageArchive",
+                                            "infoIcon": "https:\/\/answers.travian.com\/index.php?aid=Travian Answers#go2answer",
+                                            "cssClass": "premiumFeaturePackage premiumFeatureGoldclub paymentShopV4",
+                                            "premiumFeatureDialogVersion": 2,
+                                            "version": 2,
+                                            "paymentShopVersion": 4
+                                        },
+                                    }]);
+                                });
+                            }
+                        </script>
+
+                                                            <div class="content
+
+        favor favorKey4        ">
+                    <a id="buttons5" title="" class="tabItem  normal" href="/messages/notes">
+                        Catatan                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey5        ">
+                    <a id="buttonp6" title="" class="tabItem  normal" href="/messages/ignore">
+                        Pemain yang diabaikan                    </a>
+                </div>
+                                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+
+<script>
+    function messagesFormSelectAll(checkbox) {
+        jQuery('#messagesForm').find('input[type=checkbox]').each(function (index, element) {
+            element.checked = checkbox.checked;
+        }, checkbox);
+    }
+</script>
+<form method="post" action="/messages/inbox" name="msg" id="messagesForm">
+        <div class="footer">
+                    <div id="markAll">
+                <input class="check" type="checkbox" id="sAll1" onclick="messagesFormSelectAll(this);">
+                <span><label for="sAll1">Pilih Semua</label></span>
+            </div>
+                        <div class="clear">&nbsp;</div>
+    </div>
+    <table cellpadding="1" cellspacing="1" id="overview" class="inbox">
+        <thead>
+        <tr>
+            <th colspan="2">Subyek</th>
+            <th class="send">Pengirim</th>
+            <th class="dat">
+                <a href="/messages/inbox?s=0&amp;o=1" class="sorting desc">
+                    Terkirim&nbsp;
+                    <img src="/img/x.gif" alt="sort">
+                </a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td colspan="4" class="noData">Tidak ada pesan yang tersedia di kotak masuk.</td></tr>        </tbody>
+    </table>
+    <div class="administration">
+        <div class="footer">
+                            <div id="markAll">
+                    <input class="check" type="checkbox" id="sAll2" onclick="messagesFormSelectAll(this);">
+                    <span><label for="sAll2">Pilih Semua</label></span>
+                </div>
+                                    <div class="clear"></div>
+        </div>
+        <div class="buttons">
+            
+                <button type="submit" class="textButtonV1 green" id="bulkread" name="bulkread" value="tandai sebagai membaca" version="textButtonV1">tandai sebagai membaca</button><script type="text/javascript" id="bulkread_script">
+        jQuery('#bulkread').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 green","id":"bulkread","name":"bulkread","value":"tandai sebagai membaca","version":"textButtonV1","title":"tandai sebagai membaca"}]);
+        });
+    </script>&nbsp;<button type="submit" class="textButtonV1 green" id="delmsg" name="delmsg" value="Menghapus" version="textButtonV1">Menghapus</button><script type="text/javascript" id="delmsg_script">
+        jQuery('#delmsg').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"submit","class":"textButtonV1 green","id":"delmsg","name":"delmsg","value":"Menghapus","version":"textButtonV1","title":"Menghapus"}]);
+        });
+    </script>                                    <input type="hidden" name="s" value="0">
+        </div>
+    </div>
+</form>
+                    </div>

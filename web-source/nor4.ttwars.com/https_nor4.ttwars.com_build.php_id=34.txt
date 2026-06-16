@@ -1,0 +1,614 @@
+<div id="content" class="build">
+                        <h1 class="titleInHeader">Bangun gedung baru</h1><div id="build" class="gid0">
+    <a id="tabFavorButton" class="contentTitleButton buttonFramed green withIcon rectangle" onclick="Travian.api('ajax/tabFavorite', {data: {name: 'constructNewBuildingCategory',number: '1'},success: function(data) {if (data.success) { jQuery('.tabFavorWrapper .favor').removeClass('favorActive');jQuery('.tabFavorWrapper .favor.favorKey1').addClass('favorActive');}}});return false;">&nbsp;
+</a>
+    <div class="contentNavi subNavi tabFavorWrapper">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                                            <div class="content
+
+        favor favorKey1        ">
+                    <a id="buttono1" title="" class="tabItem  active" href="/build.php?id=34&amp;category=1">
+                        Infrastruktur                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey2        ">
+                    <a id="buttonD2" title="" class="tabItem  normal" href="/build.php?id=34&amp;category=2">
+                        Militer                    </a>
+                </div>
+                                                                            <div class="content
+
+        favor favorKey3        ">
+                    <a id="buttonJ3" title="" class="tabItem  normal" href="/build.php?id=34&amp;category=3">
+                        Sumberdaya                    </a>
+                </div>
+                                                    </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+<div class="navigationSpacer"></div>
+<div id="contract_building23" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Cranny</h2>
+        Cranny digunakan untuk menyembunyikan beberapa sumber daya Saat desa diserang. Sumber daya ini tidak bisa dicuri. 
+<br><br>
+Pada level 1, cranny bisa menyimpan 200 unit dari tiap sumber daya. Cranny Galia 1.5 kali lebih besar dibandingkan cranny dari suku lainnya.
+<br><br>
+Crany lawan hanya bisa menyembunyikan 80% dalam kasus Teuton unit penyerangan dengan ksatria.    </div>
+
+    <img class="build_logo building big g23 hun" src="/img/x.gif" alt="Cranny">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">40</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">50</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">30</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">10</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">0</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">0</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="crannyCap_small"></i>
+                        <span class="value">500,000</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <button type="button" class="textButtonV1 green contractLink build" value="Bangun gedung" onclick="window.location.href = 'dorf2.php?a=23&amp;id=34&amp;c=0890664fd63f'; return false;" id="buttonJ4" version="textButtonV1">Bangun gedung</button><script type="text/javascript" id="buttonJ4_script">
+        jQuery('#buttonJ4').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Bangun gedung","onclick":"window.location.href = 'dorf2.php?a=23&id=34&c=0890664fd63f'; return false;","id":"buttonJ4","version":"textButtonV1","title":"Bangun gedung"}]);
+        });
+    </script>                            <div class="inlineIcon duration">
+                    <div class="iconWrapper"><i class="clock_medium"></i></div>
+                    <span class="value ">0:00:00</span>
+                </div>
+                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building10" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Gudang </h2>
+        Gudang dapat menyimpan sumber daya kayu, liat dan besi. Dengan meningkatkan levelnya, anda bisa meningkatkan kapasitas gudang tersebut. Dapat dibangun berkali-kali, begitu dibangun ke level maksimal.    </div>
+
+    <img class="build_logo building big g10 hun" src="/img/x.gif" alt="Gudang ">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">130</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">160</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">90</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">40</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">1</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="warehouseCap_medium"></i>
+                        <span class="value">6,000,000</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <button type="button" class="textButtonV1 green contractLink build" value="Bangun gedung" onclick="window.location.href = 'dorf2.php?a=10&amp;id=34&amp;c=0890664fd63f'; return false;" id="buttona5" version="textButtonV1">Bangun gedung</button><script type="text/javascript" id="buttona5_script">
+        jQuery('#buttona5').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Bangun gedung","onclick":"window.location.href = 'dorf2.php?a=10&id=34&c=0890664fd63f'; return false;","id":"buttona5","version":"textButtonV1","title":"Bangun gedung"}]);
+        });
+    </script>                            <div class="inlineIcon duration">
+                    <div class="iconWrapper"><i class="clock_medium"></i></div>
+                    <span class="value ">0:00:00</span>
+                </div>
+                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building11" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Lumbung</h2>
+        Produksi gandum di ladang anda di simpan di lumbung. Kamu dapat menaikkan kapasitas lumbung dengan menaikkan tingkatannya. Dapat dibangun berkali-kali, begitu dibangun ke level maksimal.    </div>
+
+    <img class="build_logo building big g11 hun" src="/img/x.gif" alt="Lumbung">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">80</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">100</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">70</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">20</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">1</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="granaryCap_medium"></i>
+                        <span class="value">6,000,000</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <button type="button" class="textButtonV1 green contractLink build" value="Bangun gedung" onclick="window.location.href = 'dorf2.php?a=11&amp;id=34&amp;c=0890664fd63f'; return false;" id="buttonT6" version="textButtonV1">Bangun gedung</button><script type="text/javascript" id="buttonT6_script">
+        jQuery('#buttonT6').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Bangun gedung","onclick":"window.location.href = 'dorf2.php?a=11&id=34&c=0890664fd63f'; return false;","id":"buttonT6","version":"textButtonV1","title":"Bangun gedung"}]);
+        });
+    </script>                            <div class="inlineIcon duration">
+                    <div class="iconWrapper"><i class="clock_medium"></i></div>
+                    <span class="value ">0:00:00</span>
+                </div>
+                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building18" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Kedutaan</h2>
+        Kedutaan adalah tempat untuk diplomat. Pada level 1 anda dapat bergabung dengan aliansi, dan setelah meningkatkan ke level 3 anda bisa membuat aliansi sendiri. 
+<br><br>
+Jumlah anggota maksimum yang memungkinkan dalam aliansi adalah sama dengan 3 kali tingkat tingkat tertinggikedutaandalam aliansi itu. Oleh karena itu, dengan tingkat 20 kedutaan,ada bisa sampai 60 pemain dalam aliansi.    </div>
+
+    <img class="build_logo building big g18 hun" src="/img/x.gif" alt="Kedutaan">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">180</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">130</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">150</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">80</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">3</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">5</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">3</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <button type="button" class="textButtonV1 green contractLink build" value="Bangun gedung" onclick="window.location.href = 'dorf2.php?a=18&amp;id=34&amp;c=0890664fd63f'; return false;" id="buttonQ7" version="textButtonV1">Bangun gedung</button><script type="text/javascript" id="buttonQ7_script">
+        jQuery('#buttonQ7').click(function (event) {
+            jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"button","class":"textButtonV1 green contractLink build","value":"Bangun gedung","onclick":"window.location.href = 'dorf2.php?a=18&id=34&c=0890664fd63f'; return false;","id":"buttonQ7","version":"textButtonV1","title":"Bangun gedung"}]);
+        });
+    </script>                            <div class="inlineIcon duration">
+                    <div class="iconWrapper"><i class="clock_medium"></i></div>
+                    <span class="value ">0:00:00</span>
+                </div>
+                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<h4 class="round spacer">Segera tersedia bangunan</h4><div id="contract_building17" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Pasar</h2>
+        Di pasar bisa melakukan perdagangan sumber daya dengan pemain lain. Semakin tinggi tingkatannya maka semakin banyak sumber daya dapat diangkut.    </div>
+
+    <img class="build_logo building big g17 hun" src="/img/x.gif" alt="Pasar">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">80</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">70</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">120</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">70</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">4</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">4</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">4</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <span class="buildingCondition error"><a onclick="Travian.Game.Manual.open('building', 10);">Gudang 
+</a><span>Tingkat  1</span></span><span class="buildingCondition error">, <a onclick="Travian.Game.Manual.open('building', 11);">Lumbung
+</a><span>Tingkat  1</span></span><span class="buildingCondition error">, <a onclick="Travian.Game.Manual.open('building', 15);">Bangunan Utama
+</a><span>Tingkat  3</span></span>                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building25" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Kastil</h2>
+        Kastil adalah sebuah istana kecil, di mana raja atau ratu tinggal saat ia mengunjungi desa. Kastil melindungi desa dari musuh yang ingin menaklukkan desa.    </div>
+
+    <img class="build_logo building big g25 hun" src="/img/x.gif" alt="Kastil">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">580</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">460</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">350</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">180</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">1</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">2</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <span class="buildingCondition error"><a onclick="Travian.Game.Manual.open('building', 15);">Bangunan Utama
+</a><span>Tingkat  5</span></span><span class="buildingCondition ">, <a onclick="Travian.Game.Manual.open('building', 26);"><strike>Istana
+</strike></a></span><span class="buildingCondition ">, <a onclick="Travian.Game.Manual.open('building', 44);"><strike>Command Center
+</strike></a></span>                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building26" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Istana</h2>
+        Raja atau Ratu tinggal di istana. Hanya satu istana bisa eksis di kerajaan. Anda perlu sebuah istana untuk menyatakan sebuah desa sebagai ibukota.
+<br><br>
+Ibukota tidak dapat di taklukan Selain itu Ibukota satu-satunya tempat dimana padepokan dapat di bangun dan bidang sumber daya dapat dinaikkan melebihi level 10.    </div>
+
+    <img class="build_logo building big g26 hun" src="/img/x.gif" alt="Istana">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">550</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">800</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">750</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">250</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">1</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">6</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <span class="buildingCondition error"><a onclick="Travian.Game.Manual.open('building', 15);">Bangunan Utama
+</a><span>Tingkat  5</span></span><span class="buildingCondition error">, <a onclick="Travian.Game.Manual.open('building', 18);">Kedutaan
+</a><span>Tingkat  1</span></span><span class="buildingCondition ">, <a onclick="Travian.Game.Manual.open('building', 25);"><strike>Kastil
+</strike></a></span><span class="buildingCondition ">, <a onclick="Travian.Game.Manual.open('building', 44);"><strike>Command Center
+</strike></a></span>                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building44" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Command Center</h2>
+        Pusat Komando adalah sebuah istana kecil, tempat Raja atau Ratu tinggal saat mengunjungi desa. Pusat Komando melindungi desa dari musuh yang ingin menaklukkannya.    </div>
+
+    <img class="build_logo building big g44 hun" src="/img/x.gif" alt="Command Center">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">1,600</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">1,250</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">1,050</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">200</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">1</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">2</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <span class="buildingCondition error"><a onclick="Travian.Game.Manual.open('building', 15);">Bangunan Utama
+</a><span>Tingkat  5</span></span><span class="buildingCondition ">, <a onclick="Travian.Game.Manual.open('building', 25);"><strike>Kastil
+</strike></a></span><span class="buildingCondition ">, <a onclick="Travian.Game.Manual.open('building', 26);"><strike>Istana
+</strike></a></span>                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building34" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Tukang Batu</h2>
+        Tukang batu adalah orang yang ahli dalam mengolah batu. Semakin tinggi tingkatannya maka semakin stabil bangunan yang berada dalam desa. 
+<br><br>
+Tukang batu hanya dapat dibangun di ibukota.    </div>
+
+    <img class="build_logo building big g34 hun" src="/img/x.gif" alt="Tukang Batu">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">155</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">130</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">125</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">70</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">2</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">1</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">2</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="stabilityBonus_small"></i>
+                        <span class="value">110%</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <span class="buildingCondition error"><a onclick="Travian.Game.Manual.open('building', 15);">Bangunan Utama
+</a><span>Tingkat  5</span></span>                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building27" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Gudang Ilmu</h2>
+        Kekayaan kerajaanmu disimpan di gudang ilmu. Gudang Ilmu hanya dapat menyimpan satu artifak dalam satu waktu.
+<br><br>
+Anda memerlukan Gudang Ilmu level 10 untuk sebuah artefak kecil, atau  level 20 untuk artefak besar / spesial.    </div>
+
+    <img class="build_logo building big g27 hun" src="/img/x.gif" alt="Gudang Ilmu">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">2,880</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">2,740</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">2,580</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">990</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">4</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">7</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">4</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <span class="buildingCondition error"><a onclick="Travian.Game.Manual.open('building', 15);">Bangunan Utama
+</a><span>Tingkat  10</span></span><span class="buildingCondition ">, <a onclick="Travian.Game.Manual.open('building', 40);"><strike>Keajaiban dunia
+</strike></a></span>                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building24" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Balai Desa</h2>
+        Di Balai Desa bisa dilaksanakan pesta rakyat. Perayaan seperti itu bisa meningkatkan nilai budaya. 
+<br><br>
+Nilai budaya sangat penting untuk menemukan desa baru atau menaklukkan desa lain. Setiap bangunan memproduksi nilai budaya dan semakin tinggi levelnya, semakin banyak nilai budaya di produksi.    </div>
+
+    <img class="build_logo building big g24 hun" src="/img/x.gif" alt="Balai Desa">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">1,250</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">1,110</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">1,260</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">600</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">4</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">6</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">4</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <span class="buildingCondition error"><a onclick="Travian.Game.Manual.open('building', 15);">Bangunan Utama
+</a><span>Tingkat  10</span></span><span class="buildingCondition error">, <a onclick="Travian.Game.Manual.open('building', 22);">Akademi
+</a><span>Tingkat  10</span></span>                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<hr><div id="contract_building28" class="buildingWrapper">
+    <div class="build_desc">
+        <h2>Kantor Dagang</h2>
+        Di Kantor Dagang daya angkut dan kuda-kuda pedagang dikembangkan. Semakin tinggi tingkatan bangunan maka semakin banyak daya angkut pedagang.    </div>
+
+    <img class="build_logo building big g28 hun" src="/img/x.gif" alt="Kantor Dagang">
+
+    <div class="upgradeBuilding">
+        <div id="contract" class="contractWrapper">
+            <div class="inlineIconList resourceWrapper">
+                <div class="inlineIcon resource"><i class="r1Big"></i><span class="value value">1,400</span></div>
+                <div class="inlineIcon resource"><i class="r2Big"></i><span class="value value">1,330</span></div>
+                <div class="inlineIcon resource"><i class="r3Big"></i><span class="value value">1,200</span></div>
+                <div class="inlineIcon resource"><i class="r4Big"></i><span class="value value">400</span></div>
+                <div class="inlineIcon resource"><i class="cropConsumptionBig"></i><span class="value value">3</span></div>
+            </div>
+            <div class="upgradeBlocked">
+                            </div>
+        </div>
+
+        <div class="buildingBenefits">
+            <div class="wrapper">
+                                    <div class="unit">
+                        <i class="culturePoints_medium"></i>
+                        <span class="value">4</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="population_medium"></i>
+                        <span class="value">3</span>
+                        <span class="delta"></span>
+                    </div>
+                                    <div class="unit">
+                        <i class="merchantCap_small"></i>
+                        <span class="value">12,000,000</span>
+                        <span class="delta"></span>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="upgradeButtonsContainer">
+            <span class="buildingCondition error"><a onclick="Travian.Game.Manual.open('building', 17);">Pasar
+</a><span>Tingkat  20</span></span><span class="buildingCondition error">, <a onclick="Travian.Game.Manual.open('building', 20);">Istal
+</a><span>Tingkat  10</span></span>                    </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+</div>                    </div>
