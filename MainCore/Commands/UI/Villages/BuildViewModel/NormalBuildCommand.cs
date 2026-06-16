@@ -19,6 +19,9 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
             var buildings = await getLayoutBuildingsQuery.HandleAsync(new(villageId));
             var building = buildings.Find(x => x.Location == plan.Location);
 
+            // Track all used locations for finding empty slots
+            var usedLocations = new HashSet<int>();
+
             if (building is null)
             {
                 // Building doesn't exist at this location - validate and find correct location
@@ -30,7 +33,9 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
                 if (building.Type != plan.Type)
                 {
                     // Building type doesn't match - need to find correct location
-                    // For new buildings, find an empty slot
+                    logger.Information("[DEBUG] Location {Location} has {ExistingType}, but plan wants {PlanType}. Finding new slot...",
+                        plan.Location, building.Type, plan.Type);
+
                     if (plan.Type.IsWall())
                     {
                         plan.Location = 40;
@@ -47,22 +52,38 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
                                 plan.Location = largestLevelBuilding.Location;
                             }
                         }
+                        else
+                        {
+                            // No existing building of this type - find any empty slot
+                            var emptySlot = buildings.FirstOrDefault(x => x.Type == BuildingEnums.Site && !usedLocations.Contains(x.Location));
+                            if (emptySlot is not null)
+                            {
+                                plan.Location = emptySlot.Location;
+                                logger.Information("[DEBUG] Found empty slot at {Location} for {Type}", plan.Location, plan.Type);
+                            }
+                            else
+                            {
+                                return Result.Fail("No empty slot available for new building");
+                            }
+                        }
                     }
                     else
                     {
-                        // Single building - find existing building of this type or empty slot
+                        // Single building - find existing building of this type or ANY empty slot
                         var existingBuilding = buildings.Find(x => x.Type == plan.Type);
                         if (existingBuilding is not null)
                         {
                             plan.Location = existingBuilding.Location;
+                            logger.Information("[DEBUG] Found existing {Type} at {Location}", plan.Type, plan.Location);
                         }
                         else
                         {
-                            // Find empty slot for new building
-                            var emptySlot = buildings.FirstOrDefault(x => x.Type == BuildingEnums.Site);
+                            // Find ANY empty slot for new building
+                            var emptySlot = buildings.FirstOrDefault(x => x.Type == BuildingEnums.Site && !usedLocations.Contains(x.Location));
                             if (emptySlot is not null)
                             {
                                 plan.Location = emptySlot.Location;
+                                logger.Information("[DEBUG] Found empty slot at {Location} for new {Type}", plan.Location, plan.Type);
                             }
                             else
                             {
@@ -73,13 +94,13 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
                 }
             }
 
+            // Add main building location to used locations
+            usedLocations.Add(plan.Location);
+
             // Check prerequisites and add them automatically if needed
             var prerequisiteBuildings = plan.Type.GetPrerequisiteBuildings();
             if (prerequisiteBuildings.Count > 0)
             {
-                // Track used locations to avoid conflicts - include main building location
-                var usedLocations = new HashSet<int> { plan.Location };
-
                 foreach (var prerequisiteBuilding in prerequisiteBuildings)
                 {
                     var existingPrereq = buildings
