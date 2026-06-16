@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -8,7 +8,7 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <SelfContained>true</SelfContained>
 
-    <AssemblyVersion>1.1.2</AssemblyVersion>
+    <AssemblyVersion>1.1.1</AssemblyVersion>
 
     <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
   </PropertyGroup>

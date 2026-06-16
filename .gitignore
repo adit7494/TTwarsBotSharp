@@ -381,3 +381,5 @@ Web/Server/
 Web/Shared/
 /TBS.db-shm
 /TBS.db-wal
+
+*.zip
