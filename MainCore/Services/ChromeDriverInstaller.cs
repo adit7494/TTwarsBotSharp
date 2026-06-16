@@ -33,11 +33,44 @@ namespace MainCore.Services
             {
                 return;
             }
+
+            KillExistingChromeDriver();
             await Download(chromeVersion);
 
-            if (!IsBinaryPatched())
+            try
             {
-                PatchExe();
+                if (!IsBinaryPatched())
+                {
+                    PatchExe();
+                }
+            }
+            catch (IOException)
+            {
+                // chromedriver.exe is locked by another process, skip patching
+            }
+        }
+
+        private static void KillExistingChromeDriver()
+        {
+            try
+            {
+                var processes = Process.GetProcessesByName("chromedriver");
+                foreach (var process in processes)
+                {
+                    try
+                    {
+                        process.Kill(true);
+                        process.WaitForExit(3000);
+                    }
+                    catch
+                    {
+                        // process may have already exited
+                    }
+                }
+            }
+            catch
+            {
+                // ignore errors when killing processes
             }
         }
 
