@@ -2,10 +2,13 @@
 
 **A powerful, open-source automation bot for Travian: Legends and TTWars servers**
 
+[![Website](https://img.shields.io/badge/Website-Live-brightgreen?style=for-the-badge&logo=vercel)](https://web-one-olive-28.vercel.app)
 [![.NET](https://img.shields.io/badge/.NET-8.0-purple?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightblue?style=for-the-badge&logo=windows)]()
 [![Release](https://img.shields.io/github/v/release/adit7494/TTwarsBotSharp?style=for-the-badge&logo=github)](https://github.com/adit7494/TTwarsBotSharp/releases)
+
+🌐 **Website**: [https://web-one-olive-28.vercel.app](https://web-one-olive-28.vercel.app)
 
 ---
 
