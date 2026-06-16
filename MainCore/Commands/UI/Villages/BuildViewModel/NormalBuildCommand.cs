@@ -71,6 +71,10 @@ namespace MainCore.Commands.UI.Villages.BuildViewModel
                             }
                         }
                     }
+
+                    // Always check prerequisites when building type doesn't match
+                    var result = plan.CheckRequirements(buildings);
+                    if (result.IsFailed) return result;
                 }
             }
 
