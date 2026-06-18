@@ -7,7 +7,9 @@
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightblue?style=for-the-badge&logo=windows)]()
 [![Release](https://img.shields.io/github/v/release/adit7494/TTwarsBotSharp?style=for-the-badge&logo=github)](https://github.com/adit7494/TTwarsBotSharp/releases)
-![Uploading image.png…]()
+
+<img width="1499" height="749" alt="image" src="https://github.com/user-attachments/assets/290ca278-8075-4f2d-943e-054834529b80" />
+
 
 🌐 **Website**: [https://ttwarsbot.vercel.app](https://ttwarsbot.vercel.app)
 
