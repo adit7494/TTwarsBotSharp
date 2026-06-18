@@ -63,6 +63,16 @@
                 if (contentClass.Contains("heroAdventure")) return true;
             }
 
+            // TTWars: check for #heroAdventure element (React-rendered adventure container)
+            var heroAdventureDiv = doc.GetElementbyId("heroAdventure");
+            if (heroAdventureDiv is not null) return true;
+
+            // TTWars: check for any button with data-mapid (adventure start button)
+            var adventureButton = doc.DocumentNode
+                .Descendants("button")
+                .FirstOrDefault(x => x.GetAttributeValue("data-mapid", "") != "");
+            if (adventureButton is not null) return true;
+
             return false;
         }
 
@@ -84,11 +94,17 @@
                 .FirstOrDefault(x => x.GetAttributeValue("href", "").Contains("hero_adventures"));
             if (adventureLink is not null) return adventureLink;
 
-            // TTWars: check for adventure tab/button
+            // TTWars: check for adventure tab/button (singular)
             var adventureTab = doc.DocumentNode
                 .Descendants("a")
                 .FirstOrDefault(x => x.GetAttributeValue("href", "").Contains("hero_adventure"));
             if (adventureTab is not null) return adventureTab;
+
+            // TTWars: look for any element with class containing "adventure"
+            var adventureElement = doc.DocumentNode
+                .Descendants()
+                .FirstOrDefault(x => x.HasClass("adventure"));
+            if (adventureElement is not null) return adventureElement;
 
             return null;
         }
@@ -176,7 +192,32 @@
                         var button = firstRow.Descendants("button")
                             .FirstOrDefault(x => x.HasClass("green"));
                         if (button is not null) return button;
+
+                        // TTWars fallback: any button with data-mapid in the first row
+                        button = firstRow.Descendants("button")
+                            .FirstOrDefault(x => x.GetAttributeValue("data-mapid", "") != "");
+                        if (button is not null) return button;
                     }
+                }
+            }
+
+            // TTWars fallback: search for any button with data-mapid attribute
+            var adventureStartButton = doc.DocumentNode
+                .Descendants("button")
+                .FirstOrDefault(x => x.GetAttributeValue("data-mapid", "") != "");
+            if (adventureStartButton is not null) return adventureStartButton;
+
+            // TTWars fallback: look for button with adventure-related text
+            var buttons = doc.DocumentNode.Descendants("button");
+            foreach (var btn in buttons)
+            {
+                var text = btn.InnerText.Trim();
+                if (text.Equals("Explore", StringComparison.OrdinalIgnoreCase) ||
+                    text.Equals("Jalankan", StringComparison.OrdinalIgnoreCase) ||
+                    text.Equals("Abenteuer", StringComparison.OrdinalIgnoreCase) ||
+                    text.Equals("Start", StringComparison.OrdinalIgnoreCase))
+                {
+                    return btn;
                 }
             }
 

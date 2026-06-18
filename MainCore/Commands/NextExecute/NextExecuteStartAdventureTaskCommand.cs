@@ -12,7 +12,11 @@
         {
             await Task.CompletedTask;
             var adventureDuration = AdventureParser.GetAdventureDuration(browser.Html);
-            command.Task.ExecuteAt = DateTime.Now.Add(adventureDuration * 2);
+            var delay = adventureDuration * 2;
+            // Minimum 10-second delay to prevent immediate re-scheduling
+            // when adventure duration is very short (1-2 seconds)
+            if (delay < TimeSpan.FromSeconds(10)) delay = TimeSpan.FromSeconds(10);
+            command.Task.ExecuteAt = DateTime.Now.Add(delay);
         }
     }
 }

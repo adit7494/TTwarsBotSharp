@@ -60,7 +60,7 @@ namespace MainCore.Infrasturecture.Persistence
             return defaultSettings.Except(dbSettings).ToList();
         }
 
-        public void FillAccountSettings()
+        public async Task FillAccountSettingsAsync()
         {
             var missingSettings = GetMissingAccountSettings();
             if (missingSettings.Count == 0) return;
@@ -73,9 +73,9 @@ namespace MainCore.Infrasturecture.Persistence
                 })
                 .ToDictionary(x => x.Setting, x => x.Value);
 
-            var ids = Accounts
+            var ids = await Accounts
                 .Select(x => x.Id)
-                .AsEnumerable();
+                .ToListAsync();
 
             var settings = new List<AccountSetting>();
 
@@ -93,7 +93,7 @@ namespace MainCore.Infrasturecture.Persistence
             }
 
             AddRange(settings);
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
         #endregion account setting
@@ -154,7 +154,7 @@ namespace MainCore.Infrasturecture.Persistence
             return defaultSettings.Except(dbSettings).ToList();
         }
 
-        public void FillVillageSettings()
+        public async Task FillVillageSettingsAsync()
         {
             var missingSettings = GetMissingVillageSettings();
             if (missingSettings.Count == 0) return;
@@ -167,9 +167,9 @@ namespace MainCore.Infrasturecture.Persistence
                 })
                 .ToDictionary(x => x.Setting, x => x.Value);
 
-            var ids = Villages
+            var ids = await Villages
                 .Select(x => x.Id)
-                .AsEnumerable();
+                .ToListAsync();
 
             var settings = new List<VillageSetting>();
 
@@ -187,7 +187,7 @@ namespace MainCore.Infrasturecture.Persistence
             }
 
             AddRange(settings);
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
         public void FillVillageSettings(AccountId accountId, VillageId villageId)

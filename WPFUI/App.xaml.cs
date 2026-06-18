@@ -23,25 +23,34 @@ namespace WPFUI
         public App()
         {
             Splat.ModeDetector.OverrideModeDetector(Mode.Run);
-            var host = AppMixins.GetHostBuilder()
-                .ConfigureWpf(wpfBuilder => wpfBuilder.UseCurrentApplication(this).UseWindow<MainWindow>())
-                .UseWpfLifetime()
-                .Build();
+            _ = StartHostAsync(this);
+        }
 
-            host.MapSplatLocator(sp =>
+        private static async Task StartHostAsync(App app)
+        {
+            try
             {
-                RxApp.DefaultExceptionHandler = sp.GetRequiredService<ObservableExceptionHandler>();
-                SetupDialogService(sp);
-                sp.GetRequiredService<IRxQueue>().Setup();
-            });
+                var host = await Task.Run(() =>
+                    AppMixins.GetHostBuilder()
+                        .ConfigureWpf(wpfBuilder => wpfBuilder.UseCurrentApplication(app).UseWindow<MainWindow>())
+                        .UseWpfLifetime()
+                        .Build());
 
-            host.RunAsync().ContinueWith(t =>
-            {
-                if (t.Exception is not null)
+                host.MapSplatLocator(sp =>
                 {
-                    System.Diagnostics.Debug.WriteLine($"Host failed to start: {t.Exception}");
-                }
-            }, TaskContinuationOptions.OnlyOnFaulted);
+                    RxApp.DefaultExceptionHandler = sp.GetRequiredService<ObservableExceptionHandler>();
+                    SetupDialogService(sp);
+                    sp.GetRequiredService<IRxQueue>().Setup();
+                });
+
+                await host.RunAsync();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Host failed to start: {ex}");
+                MessageBox.Show($"Failed to start application:\n{ex.Message}", "Startup Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                app.Dispatcher.Invoke(() => app.Shutdown());
+            }
         }
 
         private static void SetupDialogService(IServiceProvider serviceProvider)

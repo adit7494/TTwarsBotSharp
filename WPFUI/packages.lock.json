@@ -25,12 +25,6 @@
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.77"
         }
       },
-      "Microsoft.NET.ILLink.Tasks": {
-        "type": "Direct",
-        "requested": "[9.0.17, )",
-        "resolved": "9.0.17",
-        "contentHash": "P5qY/hIYMlo0+QRM0W3Gd/SRf20TX+z5W5NwpdzkOk0FtgcbSTNwNcYBRNDgfThFcLpcDFslz65RcGqWOq00/w=="
-      },
       "ReactiveUI.Drawing": {
         "type": "Direct",
         "requested": "[22.2.1, )",

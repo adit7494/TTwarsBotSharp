@@ -10,6 +10,7 @@ namespace MainCore.Commands.Features.StartAdventure
         private static async ValueTask<Result> HandleAsync(
             Command command,
             IChromeBrowser browser,
+            ILogger logger,
             CancellationToken cancellationToken)
         {
             var (_, isFailed, element, errors) = await browser.GetElement(doc => AdventureParser.GetHeroAdventureButton(doc), cancellationToken);
@@ -17,6 +18,9 @@ namespace MainCore.Commands.Features.StartAdventure
 
             var result = await browser.Click(element, cancellationToken);
             if (result.IsFailed) return result;
+
+            // Small delay to let TTWars React dialog render
+            await Task.Delay(1000, cancellationToken);
 
             static bool TableShow(IWebDriver driver)
             {
@@ -26,6 +30,9 @@ namespace MainCore.Commands.Features.StartAdventure
             }
             result = await browser.Wait(TableShow, cancellationToken);
             if (result.IsFailed) return result;
+
+            // Additional wait to ensure adventure table content is fully rendered
+            await Task.Delay(1000, cancellationToken);
 
             return Result.Ok();
         }

@@ -34,6 +34,23 @@
                 return Result.Ok();
             }
 
+            // On TTWars adventure page, button clicks don't trigger full page navigation
+            // because the page uses React SPA routing. Navigate directly instead.
+            if (currentUrl.Contains("hero_adventures") || currentUrl.Contains("hero/adventures"))
+            {
+                var uri = new Uri(currentUrl);
+                var dorfUrl = $"{uri.Scheme}://{uri.Host}/dorf{dorf}.php";
+                logger.Information("ToDorfCommand: On adventure page, navigating directly to {Url}", dorfUrl);
+                var navResult = await browser.Navigate(dorfUrl, cancellationToken);
+                if (navResult.IsFailed) return navResult;
+
+                navResult = await browser.WaitPageChanged($"dorf{dorf}.php", cancellationToken);
+                if (navResult.IsFailed) return navResult;
+
+                logger.Information("ToDorfCommand: Navigation successful!");
+                return Result.Ok();
+            }
+
             logger.Information("ToDorfCommand: Looking for dorf{Dorf} button...", dorf);
             var (_, isFailed, element, errors) = await browser.GetElement(doc => NavigationBarParser.GetDorfButton(doc, dorf), cancellationToken);
             if (isFailed)

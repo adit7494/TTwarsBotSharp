@@ -301,26 +301,29 @@ namespace MainCore.UI.ViewModels.UserControls
         }
 
         [ReactiveCommand]
-        private List<ListBoxItem> LoadAccount()
+        private async Task<List<ListBoxItem>> LoadAccount()
         {
-            using var scope = _serviceScopeFactory.CreateScope();
-            var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-            var taskManager = scope.ServiceProvider.GetRequiredService<ITaskManager>();
-            var items = context.Accounts
-                 .AsEnumerable()
-                 .Select(x =>
-                 {
-                     var serverUrl = new Uri(x.Server);
-                     var status = taskManager.GetStatus(new(x.Id));
-                     return new ListBoxItem()
+            return await Task.Run(() =>
+            {
+                using var scope = _serviceScopeFactory.CreateScope();
+                var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                var taskManager = scope.ServiceProvider.GetRequiredService<ITaskManager>();
+                var items = context.Accounts
+                     .AsEnumerable()
+                     .Select(x =>
                      {
-                         Id = x.Id,
-                         Color = status.GetColor(),
-                         Content = $"{x.Username}{Environment.NewLine}({serverUrl.Host})"
-                     };
-                 })
-                 .ToList();
-            return items;
+                         var serverUrl = new Uri(x.Server);
+                         var status = taskManager.GetStatus(new(x.Id));
+                         return new ListBoxItem()
+                         {
+                             Id = x.Id,
+                             Color = status.GetColor(),
+                             Content = $"{x.Username}{Environment.NewLine}({serverUrl.Host})"
+                         };
+                     })
+                     .ToList();
+                return items;
+            });
         }
 
         [ReactiveCommand]

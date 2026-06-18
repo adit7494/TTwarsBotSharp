@@ -40,12 +40,12 @@ namespace MainCore.UI.ViewModels
 
                     if (!notExist)
                     {
-                        context.FillAccountSettings();
-                        context.FillVillageSettings();
+                        await context.FillAccountSettingsAsync();
+                        await context.FillVillageSettingsAsync();
 
-                        context.QueueBuildings
+                        await context.QueueBuildings
                             .Where(x => x.Level == -1)
-                            .ExecuteDelete();
+                            .ExecuteDeleteAsync();
                     }
                 }, RxApp.TaskpoolScheduler);
 
